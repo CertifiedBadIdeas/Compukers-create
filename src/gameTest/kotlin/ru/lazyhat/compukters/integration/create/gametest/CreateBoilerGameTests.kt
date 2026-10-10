@@ -29,19 +29,16 @@ object CreateBoilerGameTests {
     @GameTest(batch = "create_boiler", template = "bastion/mobs/empty", templateNamespace = "minecraft", timeoutTicks = 100_000)
     fun namedBoilerLifecycle(helper: GameTestHelper) {
         val computer = BlockPos(2, 3, 3)
-        val junction = BlockPos(4, 3, 3)
         val controller = BlockPos(5, 2, 3)
         val contact = controller.above()
         val engine = controller.above(3).east()
         val plainTank = BlockPos(5, 3, 5)
-        val cable = CompuktersRegistry.PERIPHERAL_CABLE.get()
         val tank = AllBlocks.FLUID_TANK.get()
         val engineState =
             AllBlocks.STEAM_ENGINE.defaultState
                 .setValue(SteamEngineBlock.FACE, AttachFace.WALL)
                 .setValue(SteamEngineBlock.FACING, Direction.EAST)
         helper.setBlock(computer, CompuktersRegistry.COMPUTER.get())
-        listOf(BlockPos(3, 3, 3), junction, BlockPos(4, 3, 4), BlockPos(4, 3, 5)).forEach { helper.setBlock(it, cable) }
         helper.setBlock(controller.below(), Blocks.CAMPFIRE)
         repeat(4) { helper.setBlock(controller.above(it), tank) }
         helper.setBlock(plainTank, tank)
@@ -59,7 +56,7 @@ object CreateBoilerGameTests {
             val actual = segment.controllerBE
             helper.assertTrue(
                 actual != null && actual.blockPos != segment.blockPos,
-                "cable contact must be a real non-controller tank segment",
+                "peripheral contact must be a real non-controller tank segment",
             )
             helper.assertTrue(
                 actual!!.totalTankSize == 4 && actual.boiler.isActive && actual.boiler.waterSupply == 20f,
@@ -68,7 +65,9 @@ object CreateBoilerGameTests {
             helper.assertTrue(actual.boiler.passiveHeat, "campfire did not provide real passive heat")
         }
         sequence.thenWaitUntil { ready() }.thenExecute {
+            PeripheralNetworkGameTestFixtures.bind(helper, helper.absolutePos(computer), helper.absolutePos(contact))
             CreatePeripheralGameTests.nameDevice(helper, contact, "boiler")
+            PeripheralNetworkGameTestFixtures.assertNotPeripheral(helper, helper.absolutePos(plainTank))
             val rejected = CreatePeripheralGameTests.nameDevice(helper, plainTank, "plain", expectSuccess = false)
             helper.assertTrue(
                 rejected == PeripheralConfiguratorSaveResult.INVALID_TARGET,
@@ -93,13 +92,17 @@ object CreateBoilerGameTests {
                 helper.setBlock(contact, Blocks.AIR)
                 helper.setBlock(contact, tank)
             }.thenWaitUntil { ready() }
-            .thenExecute { CreatePeripheralGameTests.nameDevice(helper, contact, "boiler") }
+            .thenExecute {
+                PeripheralNetworkGameTestFixtures.removeReplaced(helper, helper.absolutePos(computer), "boiler")
+                PeripheralNetworkGameTestFixtures.bind(helper, helper.absolutePos(computer), helper.absolutePos(contact))
+                CreatePeripheralGameTests.nameDevice(helper, contact, "boiler")
+            }
         guest.resume(sequence)
         guest.awaitMarker(sequence, "boiler-replaced")
-        sequence.thenExecute { helper.setBlock(junction, Blocks.AIR) }
+        sequence.thenExecute { PeripheralNetworkGameTestFixtures.unbind(helper, helper.absolutePos(computer)) }
         guest.resume(sequence)
         guest.awaitMarker(sequence, "boiler-cut")
-        sequence.thenExecute { helper.setBlock(junction, cable) }
+        sequence.thenExecute { PeripheralNetworkGameTestFixtures.bind(helper, helper.absolutePos(contact), helper.absolutePos(computer)) }
         guest.resume(sequence)
         guest.awaitMarker(sequence, "boiler-done")
         sequence.thenSucceed()

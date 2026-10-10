@@ -16,19 +16,14 @@ import net.minecraft.core.BlockPos
 import net.minecraft.core.Direction
 import net.minecraft.gametest.framework.GameTest
 import net.minecraft.gametest.framework.GameTestHelper
-import net.minecraft.world.InteractionHand
-import net.minecraft.world.item.ItemStack
 import net.minecraft.world.level.block.Blocks
 import net.neoforged.bus.api.SubscribeEvent
 import net.neoforged.fml.common.EventBusSubscriber
-import net.neoforged.neoforge.common.util.FakePlayerFactory
 import net.neoforged.neoforge.event.RegisterGameTestsEvent
 import net.neoforged.neoforge.gametest.PrefixGameTestTemplate
 import ru.lazyhat.compukters.impl.registry.CompuktersRegistry
 import ru.lazyhat.compukters.integration.create.CompuktersCreateMod
-import ru.lazyhat.compukters.minecraft.peripheral.PeripheralConfiguratorContext
 import ru.lazyhat.compukters.minecraft.peripheral.PeripheralConfiguratorSaveResult
-import ru.lazyhat.compukters.minecraft.peripheral.PeripheralConfiguratorServer
 
 @PrefixGameTestTemplate(false)
 object CreatePeripheralGameTests {
@@ -36,23 +31,11 @@ object CreatePeripheralGameTests {
     @GameTest(batch = "create_kinetics", template = "bastion/mobs/empty", templateNamespace = "minecraft", timeoutTicks = 1_000_000)
     fun namedKineticLifecycle(helper: GameTestHelper) {
         val computer = BlockPos(2, 2, 3)
-        val junction = BlockPos(4, 2, 3)
         val speed = BlockPos(5, 2, 1)
         val stress = BlockPos(5, 2, 5)
         val controller = BlockPos(5, 3, 3)
         val stock = BlockPos(5, 4, 3)
-        val cable = CompuktersRegistry.PERIPHERAL_CABLE.get()
         helper.setBlock(computer, CompuktersRegistry.COMPUTER.get())
-        listOf(
-            BlockPos(3, 2, 3),
-            junction,
-            BlockPos(4, 2, 2),
-            BlockPos(4, 2, 1),
-            BlockPos(4, 2, 4),
-            BlockPos(4, 2, 5),
-            BlockPos(4, 3, 3),
-            BlockPos(4, 4, 3),
-        ).forEach { helper.setBlock(it, cable) }
         val gaugeState =
             AllBlocks.SPEEDOMETER.defaultState
                 .setValue(DirectionalKineticBlock.FACING, Direction.NORTH)
@@ -76,6 +59,10 @@ object CreatePeripheralGameTests {
                 listOf(speed.east(), stress.east()).forEach {
                     (helper.getBlockEntity(it) as CreativeMotorBlockEntity).generatedSpeed.setValue(-64)
                 }
+                PeripheralNetworkGameTestFixtures.bind(
+                    helper,
+                    *listOf(computer, speed, stress, controller, stock).map(helper::absolutePos).toTypedArray(),
+                )
                 nameDevice(helper, speed, "speed")
                 nameDevice(helper, stress, "stress")
                 nameDevice(helper, controller, "controller")
@@ -91,11 +78,11 @@ object CreatePeripheralGameTests {
                 (helper.getBlockEntity(controller) as SpeedControllerBlockEntity).targetSpeed.value == 37,
                 "Guest controller write did not reach the actual block",
             )
-            helper.setBlock(junction, Blocks.AIR)
+            PeripheralNetworkGameTestFixtures.unbind(helper, helper.absolutePos(computer))
         }
         guest.resume(sequence)
         guest.awaitMarker(sequence, "kinetic-cut")
-        sequence.thenExecute { helper.setBlock(junction, cable) }
+        sequence.thenExecute { PeripheralNetworkGameTestFixtures.bind(helper, helper.absolutePos(stress), helper.absolutePos(computer)) }
         guest.resume(sequence)
         guest.awaitMarker(sequence, "kinetic-restored")
         sequence
@@ -107,7 +94,11 @@ object CreatePeripheralGameTests {
                     (helper.getBlockEntity(speed) as SpeedGaugeBlockEntity).speed == 64f,
                     "replacement speedometer did not rejoin the real kinetic network",
                 )
-            }.thenExecute { nameDevice(helper, speed, "speed") }
+            }.thenExecute {
+                PeripheralNetworkGameTestFixtures.removeReplaced(helper, helper.absolutePos(computer), "speed")
+                PeripheralNetworkGameTestFixtures.bind(helper, helper.absolutePos(stress), helper.absolutePos(speed))
+                nameDevice(helper, speed, "speed")
+            }
         guest.resume(sequence)
         guest.awaitMarker(sequence, "kinetic-replaced")
         sequence.thenExecute {
@@ -125,17 +116,7 @@ object CreatePeripheralGameTests {
         name: String,
         expectSuccess: Boolean = true,
     ): PeripheralConfiguratorSaveResult {
-        val absolute = helper.absolutePos(position)
-        val player = FakePlayerFactory.getMinecraft(helper.level)
-        player.setPos(absolute.x + 0.5, absolute.y + 0.5, absolute.z + 0.5)
-        player.setItemInHand(InteractionHand.MAIN_HAND, ItemStack(CompuktersRegistry.PERIPHERAL_CONFIGURATOR_ITEM.get()))
-        val result =
-            PeripheralConfiguratorServer.save(
-                player,
-                InteractionHand.MAIN_HAND,
-                PeripheralConfiguratorContext(absolute, Direction.WEST),
-                name,
-            )
+        val result = PeripheralNetworkGameTestFixtures.name(helper, helper.absolutePos(position), name)
         if (expectSuccess) {
             helper.assertTrue(
                 result == PeripheralConfiguratorSaveResult.NAMED_DEVICE,
