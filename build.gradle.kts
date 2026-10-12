@@ -184,13 +184,9 @@ val verifyProductionJar =
         description = "Checks that the standalone Create addon contains only its own implementation and Guest API bundle."
         dependsOn(productionJar)
         inputs.file(productionJar.flatMap { it.archiveFile })
+        val checkedArchive = productionJar.flatMap { it.archiveFile }
         doLast {
-            val archive =
-                productionJar
-                    .get()
-                    .archiveFile
-                    .get()
-                    .asFile
+            val archive = checkedArchive.get().asFile
             val entries =
                 ZipFile(archive).use { zip ->
                     zip
@@ -230,17 +226,17 @@ val verifyGameTestRunIsolation =
     tasks.register("verifyGameTestRunIsolation") {
         group = "verification"
         description = "Checks that Create GameTests are visible only to their dedicated server run."
+        val outputs = gameTest.output.files.map(File::getCanonicalFile).toSet()
+        val runModFiles = listOf("client", "server", "gameTestServer").associateWith { runName ->
+            val run = loom.runs.named(runName).get()
+            (if (run.mods.isEmpty()) loom.mods else run.mods)
+                .flatMap { it.modFiles.files }.map(File::getCanonicalFile).toSet()
+        }
         doLast {
-            val outputs = gameTest.output.files.map(File::getCanonicalFile).toSet()
-            fun modFiles(runName: String): Set<File> {
-                val run = loom.runs.named(runName).get()
-                return (if (run.mods.isEmpty()) loom.mods else run.mods)
-                    .flatMap { it.modFiles.files }.map(File::getCanonicalFile).toSet()
-            }
             listOf("client", "server").forEach { runName ->
-                check(modFiles(runName).intersect(outputs).isEmpty()) { "Create GameTest output leaked into $runName" }
+                check(runModFiles.getValue(runName).intersect(outputs).isEmpty()) { "Create GameTest output leaked into $runName" }
             }
-            check(modFiles("gameTestServer").intersect(outputs).isNotEmpty()) { "Create GameTest output is missing" }
+            check(runModFiles.getValue("gameTestServer").intersect(outputs).isNotEmpty()) { "Create GameTest output is missing" }
         }
     }
 
