@@ -57,7 +57,7 @@ import ru.lazyhat.compukters.lang.runtime.vm.HostFailureKind
 object CreatePeripheralIntegration {
     private val contracts =
         PeripheralKind.entries.associateWith { kind ->
-            CompuktersPeripheralContract("create:${kind.deviceKey}", kind.deviceKey) { location ->
+            CompuktersPeripheralContract("create:${kind.deviceKey}", kind.deviceKey, kind.guestLookupType) { location ->
                 resolveEndpoint(location.level, location.position, kind) { location.isReachable() }
             }
         }
@@ -614,6 +614,16 @@ internal enum class PeripheralKind {
 
     val deviceKey: String
         get() = name.lowercase()
+
+    val guestLookupType: String
+        get() =
+            when (this) {
+                SPEEDOMETER -> "create.kinetics.Speedometer"
+                STRESSOMETER -> "create.kinetics.Stressometer"
+                ROTATION_CONTROLLER -> "create.kinetics.RotationController"
+                STOCK_TICKER -> "create.logistics.StockTicker"
+                BOILER -> "create.boiler.Boiler"
+            }
 }
 
 internal sealed interface CreateNamedResolution {
