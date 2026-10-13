@@ -1,30 +1,128 @@
 {
-  "variants": {
-    "axis=y,powered=false": {
-      "model": "create:block/clutch/block"
+  "multipart": [
+    {
+      "when": {
+        "axis": "y",
+        "powered": "false"
+      },
+      "apply": {
+        "model": "create:block/clutch/block"
+      }
     },
-    "axis=y,powered=true": {
-      "model": "create:block/clutch/block_powered"
+    {
+      "when": {
+        "axis": "y",
+        "powered": "false"
+      },
+      "apply": {
+        "model": "compukters_create:block/clutch_controller_closed"
+      }
     },
-    "axis=z,powered=false": {
-      "model": "create:block/clutch/block",
-      "x": 90,
-      "y": 180
+    {
+      "when": {
+        "axis": "y",
+        "powered": "true"
+      },
+      "apply": {
+        "model": "create:block/clutch/block_powered"
+      }
     },
-    "axis=z,powered=true": {
-      "model": "create:block/clutch/block_powered",
-      "x": 90,
-      "y": 180
+    {
+      "when": {
+        "axis": "y",
+        "powered": "true"
+      },
+      "apply": {
+        "model": "compukters_create:block/clutch_controller_open"
+      }
     },
-    "axis=x,powered=false": {
-      "model": "create:block/clutch/block",
-      "x": 90,
-      "y": 90
+    {
+      "when": {
+        "axis": "z",
+        "powered": "false"
+      },
+      "apply": {
+        "model": "create:block/clutch/block",
+        "x": 90,
+        "y": 180
+      }
     },
-    "axis=x,powered=true": {
-      "model": "create:block/clutch/block_powered",
-      "x": 90,
-      "y": 90
+    {
+      "when": {
+        "axis": "z",
+        "powered": "false"
+      },
+      "apply": {
+        "x": 90,
+        "y": 180,
+        "model": "compukters_create:block/clutch_controller_closed"
+      }
+    },
+    {
+      "when": {
+        "axis": "z",
+        "powered": "true"
+      },
+      "apply": {
+        "model": "create:block/clutch/block_powered",
+        "x": 90,
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "axis": "z",
+        "powered": "true"
+      },
+      "apply": {
+        "x": 90,
+        "y": 180,
+        "model": "compukters_create:block/clutch_controller_open"
+      }
+    },
+    {
+      "when": {
+        "axis": "x",
+        "powered": "false"
+      },
+      "apply": {
+        "model": "create:block/clutch/block",
+        "x": 90,
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "axis": "x",
+        "powered": "false"
+      },
+      "apply": {
+        "x": 90,
+        "y": 90,
+        "model": "compukters_create:block/clutch_controller_closed"
+      }
+    },
+    {
+      "when": {
+        "axis": "x",
+        "powered": "true"
+      },
+      "apply": {
+        "model": "create:block/clutch/block_powered",
+        "x": 90,
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "axis": "x",
+        "powered": "true"
+      },
+      "apply": {
+        "x": 90,
+        "y": 90,
+        "model": "compukters_create:block/clutch_controller_open"
+      }
     }
-  }
+  ]
 }

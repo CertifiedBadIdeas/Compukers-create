@@ -1,0 +1,246 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "frame": "compukters:block/compukter/front",
+    "black": "minecraft:block/black_concrete",
+    "brass": "create:block/brass_block",
+    "metal": "minecraft:block/iron_block",
+    "mark": "minecraft:block/lime_concrete"
+  },
+  "elements": [
+    {
+      "name": "Controller frame",
+      "from": [4, 4, 17.5],
+      "to": [12, 12, 18.5],
+      "faces": {
+        "north": {"texture": "#frame", "uv": [1, 1, 2, 2]},
+        "south": {"texture": "#frame", "uv": [1, 1, 2, 2]},
+        "east": {"texture": "#frame", "uv": [1, 1, 2, 2]},
+        "west": {"texture": "#frame", "uv": [1, 1, 2, 2]},
+        "up": {"texture": "#frame", "uv": [1, 1, 2, 2]},
+        "down": {"texture": "#frame", "uv": [1, 1, 2, 2]}
+      }
+    },
+    {
+      "name": "Inset black panel",
+      "from": [4.75, 4.75, 18.5],
+      "to": [11.25, 11.25, 18.625],
+      "faces": {
+        "north": {"texture": "#black", "uv": [0, 0, 16, 16]},
+        "south": {"texture": "#black", "uv": [0, 0, 16, 16]},
+        "east": {"texture": "#black", "uv": [0, 0, 16, 16]},
+        "west": {"texture": "#black", "uv": [0, 0, 16, 16]},
+        "up": {"texture": "#black", "uv": [0, 0, 16, 16]},
+        "down": {"texture": "#black", "uv": [0, 0, 16, 16]}
+      }
+    },
+    {
+      "name": "Brass fastener",
+      "from": [4.25, 4.25, 18.5],
+      "to": [4.75, 4.75, 18.7],
+      "faces": {
+        "north": {"texture": "#brass", "uv": [0, 0, 16, 16]},
+        "south": {"texture": "#brass", "uv": [0, 0, 16, 16]},
+        "east": {"texture": "#brass", "uv": [0, 0, 16, 16]},
+        "west": {"texture": "#brass", "uv": [0, 0, 16, 16]},
+        "up": {"texture": "#brass", "uv": [0, 0, 16, 16]},
+        "down": {"texture": "#brass", "uv": [0, 0, 16, 16]}
+      }
+    },
+    {
+      "name": "Brass fastener",
+      "from": [4.25, 11.25, 18.5],
+      "to": [4.75, 11.75, 18.7],
+      "faces": {
+        "north": {"texture": "#brass", "uv": [0, 0, 16, 16]},
+        "south": {"texture": "#brass", "uv": [0, 0, 16, 16]},
+        "east": {"texture": "#brass", "uv": [0, 0, 16, 16]},
+        "west": {"texture": "#brass", "uv": [0, 0, 16, 16]},
+        "up": {"texture": "#brass", "uv": [0, 0, 16, 16]},
+        "down": {"texture": "#brass", "uv": [0, 0, 16, 16]}
+      }
+    },
+    {
+      "name": "Brass fastener",
+      "from": [11.25, 4.25, 18.5],
+      "to": [11.75, 4.75, 18.7],
+      "faces": {
+        "north": {"texture": "#brass", "uv": [0, 0, 16, 16]},
+        "south": {"texture": "#brass", "uv": [0, 0, 16, 16]},
+        "east": {"texture": "#brass", "uv": [0, 0, 16, 16]},
+        "west": {"texture": "#brass", "uv": [0, 0, 16, 16]},
+        "up": {"texture": "#brass", "uv": [0, 0, 16, 16]},
+        "down": {"texture": "#brass", "uv": [0, 0, 16, 16]}
+      }
+    },
+    {
+      "name": "Brass fastener",
+      "from": [11.25, 11.25, 18.5],
+      "to": [11.75, 11.75, 18.7],
+      "faces": {
+        "north": {"texture": "#brass", "uv": [0, 0, 16, 16]},
+        "south": {"texture": "#brass", "uv": [0, 0, 16, 16]},
+        "east": {"texture": "#brass", "uv": [0, 0, 16, 16]},
+        "west": {"texture": "#brass", "uv": [0, 0, 16, 16]},
+        "up": {"texture": "#brass", "uv": [0, 0, 16, 16]},
+        "down": {"texture": "#brass", "uv": [0, 0, 16, 16]}
+      }
+    },
+    {
+      "name": "Collar bracket",
+      "from": [5, 1, 12],
+      "to": [11, 3, 19],
+      "faces": {
+        "north": {"texture": "#metal", "uv": [0, 0, 16, 16]},
+        "south": {"texture": "#metal", "uv": [0, 0, 16, 16]},
+        "east": {"texture": "#metal", "uv": [0, 0, 16, 16]},
+        "west": {"texture": "#metal", "uv": [0, 0, 16, 16]},
+        "up": {"texture": "#metal", "uv": [0, 0, 16, 16]},
+        "down": {"texture": "#metal", "uv": [0, 0, 16, 16]}
+      }
+    },
+    {
+      "name": "Controller support",
+      "from": [5, 3, 17.5],
+      "to": [11, 4, 19],
+      "faces": {
+        "north": {"texture": "#frame", "uv": [1, 1, 2, 2]},
+        "south": {"texture": "#frame", "uv": [1, 1, 2, 2]},
+        "east": {"texture": "#frame", "uv": [1, 1, 2, 2]},
+        "west": {"texture": "#frame", "uv": [1, 1, 2, 2]},
+        "up": {"texture": "#frame", "uv": [1, 1, 2, 2]},
+        "down": {"texture": "#frame", "uv": [1, 1, 2, 2]}
+      }
+    },
+    {
+      "name": "Socket rim",
+      "from": [8.75, 5.25, 18.625],
+      "to": [10.75, 7.25, 18.9],
+      "faces": {
+        "north": {"texture": "#metal", "uv": [0, 0, 16, 16]},
+        "south": {"texture": "#metal", "uv": [0, 0, 16, 16]},
+        "east": {"texture": "#metal", "uv": [0, 0, 16, 16]},
+        "west": {"texture": "#metal", "uv": [0, 0, 16, 16]},
+        "up": {"texture": "#metal", "uv": [0, 0, 16, 16]},
+        "down": {"texture": "#metal", "uv": [0, 0, 16, 16]}
+      }
+    },
+    {
+      "name": "Socket interior",
+      "from": [9, 5.5, 18.9],
+      "to": [10.5, 7, 18.95],
+      "faces": {
+        "north": {"texture": "#black", "uv": [0, 0, 16, 16]},
+        "south": {"texture": "#black", "uv": [0, 0, 16, 16]},
+        "east": {"texture": "#black", "uv": [0, 0, 16, 16]},
+        "west": {"texture": "#black", "uv": [0, 0, 16, 16]},
+        "up": {"texture": "#black", "uv": [0, 0, 16, 16]},
+        "down": {"texture": "#black", "uv": [0, 0, 16, 16]}
+      }
+    },
+    {
+      "name": "Socket contact",
+      "from": [9.25, 5.75, 18.95],
+      "to": [9.5, 6.75, 19.0],
+      "faces": {
+        "north": {"texture": "#brass", "uv": [0, 0, 16, 16]},
+        "south": {"texture": "#brass", "uv": [0, 0, 16, 16]},
+        "east": {"texture": "#brass", "uv": [0, 0, 16, 16]},
+        "west": {"texture": "#brass", "uv": [0, 0, 16, 16]},
+        "up": {"texture": "#brass", "uv": [0, 0, 16, 16]},
+        "down": {"texture": "#brass", "uv": [0, 0, 16, 16]}
+      }
+    },
+    {
+      "name": "Socket contact",
+      "from": [10, 5.75, 18.95],
+      "to": [10.25, 6.75, 19.0],
+      "faces": {
+        "north": {"texture": "#brass", "uv": [0, 0, 16, 16]},
+        "south": {"texture": "#brass", "uv": [0, 0, 16, 16]},
+        "east": {"texture": "#brass", "uv": [0, 0, 16, 16]},
+        "west": {"texture": "#brass", "uv": [0, 0, 16, 16]},
+        "up": {"texture": "#brass", "uv": [0, 0, 16, 16]},
+        "down": {"texture": "#brass", "uv": [0, 0, 16, 16]}
+      }
+    },
+    {
+      "name": "Flow arrow stem",
+      "from": [6, 6, 18.625],
+      "to": [7, 9.5, 18.75],
+      "faces": {
+        "north": {"texture": "#mark", "uv": [0, 0, 16, 16]},
+        "south": {"texture": "#mark", "uv": [0, 0, 16, 16]},
+        "east": {"texture": "#mark", "uv": [0, 0, 16, 16]},
+        "west": {"texture": "#mark", "uv": [0, 0, 16, 16]},
+        "up": {"texture": "#mark", "uv": [0, 0, 16, 16]},
+        "down": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      }
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [5, 8.5, 18.625],
+      "to": [6, 9.0, 18.75],
+      "faces": {
+        "north": {"texture": "#mark", "uv": [0, 0, 16, 16]},
+        "south": {"texture": "#mark", "uv": [0, 0, 16, 16]},
+        "east": {"texture": "#mark", "uv": [0, 0, 16, 16]},
+        "west": {"texture": "#mark", "uv": [0, 0, 16, 16]},
+        "up": {"texture": "#mark", "uv": [0, 0, 16, 16]},
+        "down": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      }
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [7, 8.5, 18.625],
+      "to": [8, 9.0, 18.75],
+      "faces": {
+        "north": {"texture": "#mark", "uv": [0, 0, 16, 16]},
+        "south": {"texture": "#mark", "uv": [0, 0, 16, 16]},
+        "east": {"texture": "#mark", "uv": [0, 0, 16, 16]},
+        "west": {"texture": "#mark", "uv": [0, 0, 16, 16]},
+        "up": {"texture": "#mark", "uv": [0, 0, 16, 16]},
+        "down": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      }
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [5.5, 9, 18.625],
+      "to": [6.5, 9.5, 18.75],
+      "faces": {
+        "north": {"texture": "#mark", "uv": [0, 0, 16, 16]},
+        "south": {"texture": "#mark", "uv": [0, 0, 16, 16]},
+        "east": {"texture": "#mark", "uv": [0, 0, 16, 16]},
+        "west": {"texture": "#mark", "uv": [0, 0, 16, 16]},
+        "up": {"texture": "#mark", "uv": [0, 0, 16, 16]},
+        "down": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      }
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [6.5, 9, 18.625],
+      "to": [7.5, 9.5, 18.75],
+      "faces": {
+        "north": {"texture": "#mark", "uv": [0, 0, 16, 16]},
+        "south": {"texture": "#mark", "uv": [0, 0, 16, 16]},
+        "east": {"texture": "#mark", "uv": [0, 0, 16, 16]},
+        "west": {"texture": "#mark", "uv": [0, 0, 16, 16]},
+        "up": {"texture": "#mark", "uv": [0, 0, 16, 16]},
+        "down": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      }
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [6, 9.5, 18.625],
+      "to": [7, 10.0, 18.75],
+      "faces": {
+        "north": {"texture": "#mark", "uv": [0, 0, 16, 16]},
+        "south": {"texture": "#mark", "uv": [0, 0, 16, 16]},
+        "east": {"texture": "#mark", "uv": [0, 0, 16, 16]},
+        "west": {"texture": "#mark", "uv": [0, 0, 16, 16]},
+        "up": {"texture": "#mark", "uv": [0, 0, 16, 16]},
+        "down": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      }
+    }
+  ]
+}

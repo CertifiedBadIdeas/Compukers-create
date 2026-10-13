@@ -1,30 +1,116 @@
 {
-  "variants": {
-    "facing=down": {
-      "model": "create:block/mechanical_pump/block",
-      "x": 180
+  "multipart": [
+    {
+      "when": {
+        "facing": "down"
+      },
+      "apply": {
+        "model": "create:block/mechanical_pump/block",
+        "x": 180
+      }
     },
-    "facing=up": {
-      "model": "create:block/mechanical_pump/block"
+    {
+      "when": {
+        "facing": "down"
+      },
+      "apply": {
+        "x": 180,
+        "model": "compukters_create:block/pump_controller"
+      }
     },
-    "facing=north": {
-      "model": "create:block/mechanical_pump/block",
-      "x": 90
+    {
+      "when": {
+        "facing": "up"
+      },
+      "apply": {
+        "model": "create:block/mechanical_pump/block"
+      }
     },
-    "facing=south": {
-      "model": "create:block/mechanical_pump/block",
-      "x": 90,
-      "y": 180
+    {
+      "when": {
+        "facing": "up"
+      },
+      "apply": {
+        "model": "compukters_create:block/pump_controller"
+      }
     },
-    "facing=west": {
-      "model": "create:block/mechanical_pump/block",
-      "x": 90,
-      "y": 270
+    {
+      "when": {
+        "facing": "north"
+      },
+      "apply": {
+        "model": "create:block/mechanical_pump/block",
+        "x": 90
+      }
     },
-    "facing=east": {
-      "model": "create:block/mechanical_pump/block",
-      "x": 90,
-      "y": 90
+    {
+      "when": {
+        "facing": "north"
+      },
+      "apply": {
+        "x": 90,
+        "model": "compukters_create:block/pump_controller"
+      }
+    },
+    {
+      "when": {
+        "facing": "south"
+      },
+      "apply": {
+        "model": "create:block/mechanical_pump/block",
+        "x": 90,
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "south"
+      },
+      "apply": {
+        "x": 90,
+        "y": 180,
+        "model": "compukters_create:block/pump_controller"
+      }
+    },
+    {
+      "when": {
+        "facing": "west"
+      },
+      "apply": {
+        "model": "create:block/mechanical_pump/block",
+        "x": 90,
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "west"
+      },
+      "apply": {
+        "x": 90,
+        "y": 270,
+        "model": "compukters_create:block/pump_controller"
+      }
+    },
+    {
+      "when": {
+        "facing": "east"
+      },
+      "apply": {
+        "model": "create:block/mechanical_pump/block",
+        "x": 90,
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "east"
+      },
+      "apply": {
+        "x": 90,
+        "y": 90,
+        "model": "compukters_create:block/pump_controller"
+      }
     }
-  }
+  ]
 }
