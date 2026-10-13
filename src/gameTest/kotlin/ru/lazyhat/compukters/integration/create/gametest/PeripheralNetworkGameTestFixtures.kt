@@ -108,8 +108,11 @@ internal object PeripheralNetworkGameTestFixtures {
         name: String,
     ): PeripheralConfiguratorSaveResult {
         val player = player(helper, position)
-        val anchor = position
-        // Binding creates this persisted stamp. Read it instead of manufacturing an identity for the request.
+        val anchor =
+            (helper.level.getBlockEntity(position) as? com.simibubi.create.content.fluids.tank.FluidTankBlockEntity)
+                ?.controllerBE
+                ?.blockPos ?: position
+        // The device controller owns the persisted stamp, even when interacting with another segment.
         val data = (helper.level.getBlockEntity(anchor) as? IBlockEntityExtension)?.persistentData
         val instance = runCatching { UUID.fromString(data?.getString("compukters_peripheral_instance")) }.getOrNull()
         val snapshot =

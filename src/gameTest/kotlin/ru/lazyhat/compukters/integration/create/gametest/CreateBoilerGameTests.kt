@@ -21,7 +21,11 @@ import net.neoforged.neoforge.fluids.FluidStack
 import net.neoforged.neoforge.fluids.capability.IFluidHandler
 import net.neoforged.neoforge.gametest.PrefixGameTestTemplate
 import ru.lazyhat.compukters.impl.registry.CompuktersRegistry
+import ru.lazyhat.compukters.minecraft.peripheral.ConfiguratorOverlayServer
+import ru.lazyhat.compukters.minecraft.peripheral.PeripheralConfiguratorContext
+import ru.lazyhat.compukters.minecraft.peripheral.PeripheralConfiguratorMode
 import ru.lazyhat.compukters.minecraft.peripheral.PeripheralConfiguratorSaveResult
+import ru.lazyhat.compukters.minecraft.peripheral.PeripheralConfiguratorServer
 
 @PrefixGameTestTemplate(false)
 object CreateBoilerGameTests {
@@ -65,8 +69,81 @@ object CreateBoilerGameTests {
             helper.assertTrue(actual.boiler.passiveHeat, "campfire did not provide real passive heat")
         }
         sequence.thenWaitUntil { ready() }.thenExecute {
-            PeripheralNetworkGameTestFixtures.bind(helper, helper.absolutePos(computer), helper.absolutePos(contact))
+            PeripheralNetworkGameTestFixtures.bind(
+                helper,
+                helper.absolutePos(computer),
+                helper.absolutePos(contact),
+                helper.absolutePos(controller.above(3)),
+                helper.absolutePos(controller),
+            )
             CreatePeripheralGameTests.nameDevice(helper, contact, "boiler")
+            val inspection =
+                PeripheralConfiguratorServer.inspect(
+                    helper.level,
+                    PeripheralConfiguratorContext(helper.absolutePos(controller.above(3)), Direction.WEST),
+                    PeripheralConfiguratorMode.EDIT_DEVICE,
+                )
+            helper.assertTrue(inspection.totalDevices == 2, "One boiler must produce one member beside its computer: ${inspection.entries}")
+            helper.assertTrue(inspection.targetName == "boiler", "Every tank segment must share the controller name")
+            val provider = inspection.entries.single { it.deviceKey == "boiler" }.providerId
+            LegacyBoilerBindings.add(helper.level, helper.absolutePos(computer), helper.absolutePos(contact), provider, false)
+            LegacyBoilerBindings.add(helper.level, helper.absolutePos(computer), helper.absolutePos(controller.above(3)), provider, false)
+            ConfiguratorOverlayServer.collect(helper.level, helper.absolutePos(contact))
+            val beforeMigration =
+                PeripheralConfiguratorServer.inspect(
+                    helper.level,
+                    PeripheralConfiguratorContext(helper.absolutePos(computer), Direction.WEST),
+                    PeripheralConfiguratorMode.INSPECT_NETWORK,
+                )
+            helper.assertTrue(beforeMigration.totalDevices == 4, "Holding the tool must not migrate old bindings")
+            PeripheralNetworkGameTestFixtures.bind(helper, helper.absolutePos(contact))
+            val afterMigration =
+                PeripheralConfiguratorServer.inspect(
+                    helper.level,
+                    PeripheralConfiguratorContext(helper.absolutePos(contact), Direction.WEST),
+                    PeripheralConfiguratorMode.EDIT_DEVICE,
+                )
+            helper.assertTrue(
+                afterMigration.totalDevices == 2 && afterMigration.targetName == "boiler",
+                "Legacy aliases must inherit one network and name",
+            )
+            val conflict =
+                LegacyBoilerBindings.add(
+                    helper.level,
+                    helper.absolutePos(computer),
+                    helper.absolutePos(controller.above(2)),
+                    provider,
+                    true,
+                )
+            PeripheralNetworkGameTestFixtures.bind(helper, helper.absolutePos(computer), helper.absolutePos(controller.above(3)))
+            helper.assertTrue(LegacyBoilerBindings.empty(helper.level, conflict), "Conflicting segment membership must be removed")
+            val afterConflict =
+                PeripheralConfiguratorServer.inspect(
+                    helper.level,
+                    PeripheralConfiguratorContext(helper.absolutePos(contact), Direction.WEST),
+                    PeripheralConfiguratorMode.EDIT_DEVICE,
+                )
+            helper.assertTrue(
+                afterConflict.totalDevices == 2 && afterConflict.targetName == "boiler",
+                "Explicit binding after conflict must attach the whole boiler",
+            )
+
+            val overlay = ConfiguratorOverlayServer.collect(helper.level, helper.absolutePos(contact))
+            val boiler = overlay.devices.filter { it.title == "boiler" }
+            helper.assertTrue(boiler.size == 1, "Boiler must have one overlay entity: $boiler")
+            helper.assertTrue(
+                boiler.single().position == helper.absolutePos(controller),
+                "Boiler identity must use the upstream controller",
+            )
+            helper.assertTrue(
+                boiler.single().bounds?.maximum == helper.absolutePos(controller.above(3)),
+                "Outline must cover all four tank blocks",
+            )
+            helper.assertTrue(
+                boiler.single().contains(helper.absolutePos(contact)),
+                "Hovering a non-controller segment must select the boiler",
+            )
+            helper.assertTrue(boiler.single().network != null, "All segments must display their controller network")
             PeripheralNetworkGameTestFixtures.assertNotPeripheral(helper, helper.absolutePos(plainTank))
             val rejected = CreatePeripheralGameTests.nameDevice(helper, plainTank, "plain", expectSuccess = false)
             helper.assertTrue(
@@ -89,8 +166,8 @@ object CreateBoilerGameTests {
         guest.awaitMarker(sequence, "boiler-restored")
         sequence
             .thenExecute {
-                helper.setBlock(contact, Blocks.AIR)
-                helper.setBlock(contact, tank)
+                helper.setBlock(controller, Blocks.AIR)
+                helper.setBlock(controller, tank)
             }.thenWaitUntil { ready() }
             .thenExecute {
                 PeripheralNetworkGameTestFixtures.removeReplaced(helper, helper.absolutePos(computer), "boiler")

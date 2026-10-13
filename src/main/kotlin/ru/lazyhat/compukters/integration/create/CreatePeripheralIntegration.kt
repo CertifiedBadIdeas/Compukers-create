@@ -35,6 +35,7 @@ import net.minecraft.core.registries.BuiltInRegistries
 import net.minecraft.server.level.ServerLevel
 import net.minecraft.world.item.ItemStack
 import net.minecraft.world.level.block.entity.BlockEntity
+import net.minecraft.world.phys.AABB
 import ru.lazyhat.compukters.api.addon.AddonCallResult
 import ru.lazyhat.compukters.api.addon.addonCompleted
 import ru.lazyhat.compukters.api.addon.addonFailed
@@ -49,8 +50,8 @@ import ru.lazyhat.compukters.api.addon.minecraft.CompuktersPeripheralContact
 import ru.lazyhat.compukters.api.addon.minecraft.CompuktersPeripheralContract
 import ru.lazyhat.compukters.api.addon.minecraft.CompuktersPeripheralDevice
 import ru.lazyhat.compukters.api.addon.minecraft.CompuktersPeripheralEndpoint
+import ru.lazyhat.compukters.api.addon.minecraft.CompuktersPeripheralGeometryProvider
 import ru.lazyhat.compukters.api.addon.minecraft.CompuktersPeripheralLookupStatus
-import ru.lazyhat.compukters.api.addon.minecraft.CompuktersPeripheralProvider
 import ru.lazyhat.compukters.lang.runtime.vm.HostFailureKind
 
 object CreatePeripheralIntegration {
@@ -75,7 +76,19 @@ object CreatePeripheralIntegration {
                     ),
                 )
             },
-            CompuktersPeripheralProvider(::resolvePeripheral),
+            object : CompuktersPeripheralGeometryProvider {
+                override fun resolve(contact: CompuktersPeripheralContact) = resolvePeripheral(contact)
+
+                override fun bounds(contact: CompuktersPeripheralContact): AABB? {
+                    val tank = contact.level.getBlockEntity(contact.position) as? FluidTankBlockEntity ?: return null
+                    val controller = boilerController(contact.level, tank) ?: return null
+                    return AABB(controller.blockPos).expandTowards(
+                        (controller.width - 1).toDouble(),
+                        (controller.height - 1).toDouble(),
+                        (controller.width - 1).toDouble(),
+                    )
+                }
+            },
             contracts.values.toList(),
         )
     }
@@ -99,10 +112,8 @@ object CreatePeripheralIntegration {
             }
 
             is FluidTankBlockEntity -> {
-                if (boilerController(contact.level, entity) != null) {
-                    CompuktersPeripheralDevice(contact.position, PeripheralKind.BOILER.deviceKey)
-                } else {
-                    null
+                boilerController(contact.level, entity)?.let { controller ->
+                    CompuktersPeripheralDevice(controller.blockPos.immutable(), PeripheralKind.BOILER.deviceKey)
                 }
             }
 
