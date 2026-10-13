@@ -18,6 +18,7 @@
 
 package ru.lazyhat.compukters.integration.create
 
+import com.simibubi.create.content.fluids.pump.PumpBlockEntity
 import com.simibubi.create.content.fluids.tank.BoilerData
 import com.simibubi.create.content.fluids.tank.FluidTankBlockEntity
 import com.simibubi.create.content.kinetics.gauge.SpeedGaugeBlockEntity
@@ -34,6 +35,7 @@ import net.minecraft.core.BlockPos
 import net.minecraft.core.registries.BuiltInRegistries
 import net.minecraft.server.level.ServerLevel
 import net.minecraft.world.item.ItemStack
+import net.minecraft.world.level.block.Block
 import net.minecraft.world.level.block.entity.BlockEntity
 import net.minecraft.world.phys.AABB
 import ru.lazyhat.compukters.api.addon.AddonCallResult
@@ -45,6 +47,7 @@ import ru.lazyhat.compukters.api.addon.addonPollFailed
 import ru.lazyhat.compukters.api.addon.minecraft.CompuktersAddonHostFactory
 import ru.lazyhat.compukters.api.addon.minecraft.CompuktersAddonRegistry
 import ru.lazyhat.compukters.api.addon.minecraft.CompuktersComputerContext
+import ru.lazyhat.compukters.api.addon.minecraft.CompuktersLeasedPeripheralEndpoint
 import ru.lazyhat.compukters.api.addon.minecraft.CompuktersPeripheralAccessException
 import ru.lazyhat.compukters.api.addon.minecraft.CompuktersPeripheralContact
 import ru.lazyhat.compukters.api.addon.minecraft.CompuktersPeripheralContract
@@ -52,6 +55,8 @@ import ru.lazyhat.compukters.api.addon.minecraft.CompuktersPeripheralDevice
 import ru.lazyhat.compukters.api.addon.minecraft.CompuktersPeripheralEndpoint
 import ru.lazyhat.compukters.api.addon.minecraft.CompuktersPeripheralGeometryProvider
 import ru.lazyhat.compukters.api.addon.minecraft.CompuktersPeripheralLookupStatus
+import ru.lazyhat.compukters.integration.create.actuators.ProgrammableClutchBlockEntity
+import ru.lazyhat.compukters.integration.create.actuators.ProgrammablePumpBlock
 import ru.lazyhat.compukters.lang.runtime.vm.HostFailureKind
 
 object CreatePeripheralIntegration {
@@ -95,6 +100,18 @@ object CreatePeripheralIntegration {
 
     private fun resolvePeripheral(contact: CompuktersPeripheralContact): CompuktersPeripheralDevice? =
         when (val entity = contact.level.getBlockEntity(contact.position)) {
+            is ProgrammableClutchBlockEntity -> {
+                CompuktersPeripheralDevice(contact.position, PeripheralKind.CLUTCH.deviceKey)
+            }
+
+            is PumpBlockEntity -> {
+                if (entity.blockState.block is ProgrammablePumpBlock) {
+                    CompuktersPeripheralDevice(contact.position, PeripheralKind.PUMP.deviceKey)
+                } else {
+                    null
+                }
+            }
+
             is SpeedGaugeBlockEntity -> {
                 CompuktersPeripheralDevice(contact.position, PeripheralKind.SPEEDOMETER.deviceKey)
             }
@@ -188,6 +205,24 @@ object CreatePeripheralIntegration {
     ): CreateDeviceEndpoint? {
         if (!level.hasChunkAt(position)) return null
         return when (val entity = level.getBlockEntity(position)) {
+            is ProgrammableClutchBlockEntity -> {
+                if (kind ==
+                    PeripheralKind.CLUTCH
+                ) {
+                    ClutchEndpoint(level, position, entity, reachable)
+                } else {
+                    null
+                }
+            }
+
+            is PumpBlockEntity -> {
+                if (kind == PeripheralKind.PUMP && entity.blockState.block is ProgrammablePumpBlock) {
+                    PumpEndpoint(level, position, entity, reachable)
+                } else {
+                    null
+                }
+            }
+
             is SpeedGaugeBlockEntity -> {
                 if (kind == PeripheralKind.SPEEDOMETER) {
                     SpeedometerEndpoint(level, position, entity, reachable)
@@ -409,6 +444,27 @@ internal class CreateHostState(
             }
         }
 
+    override fun pumpReversed(argument0: Int): AddonCallResult<Boolean> = withEndpoint<PumpAccess, Boolean>(argument0) { it.reversed() }
+
+    override fun setPumpReversed(
+        argument0: Int,
+        argument1: Boolean,
+    ): AddonCallResult<Boolean> =
+        withEndpoint<PumpAccess, Boolean>(argument0) {
+            it.setReversed(argument1)
+        }
+
+    override fun clutchConnected(argument0: Int): AddonCallResult<Boolean> =
+        withEndpoint<ClutchAccess, Boolean>(argument0) { it.connected() }
+
+    override fun setClutchConnected(
+        argument0: Int,
+        argument1: Boolean,
+    ): AddonCallResult<Boolean> =
+        withEndpoint<ClutchAccess, Boolean>(argument0) {
+            it.setConnected(argument1)
+        }
+
     override fun checkpoint(): ByteArray {
         check(!resourcesUsed && handles.isEmpty() && snapshots.isEmpty()) { "Active Create resources do not support hibernation" }
         return byteArrayOf()
@@ -506,6 +562,8 @@ internal class CreateHostState(
                 RotationControllerAccess::class -> PeripheralKind.ROTATION_CONTROLLER
                 StockTickerAccess::class -> PeripheralKind.STOCK_TICKER
                 BoilerAccess::class -> PeripheralKind.BOILER
+                PumpAccess::class -> PeripheralKind.PUMP
+                ClutchAccess::class -> PeripheralKind.CLUTCH
                 else -> error("Unknown Create endpoint contract")
             }
         return try {
@@ -610,6 +668,8 @@ internal enum class PeripheralKind {
     ROTATION_CONTROLLER,
     STOCK_TICKER,
     BOILER,
+    PUMP,
+    CLUTCH,
     ;
 
     val deviceKey: String
@@ -623,6 +683,8 @@ internal enum class PeripheralKind {
                 ROTATION_CONTROLLER -> "create.kinetics.RotationController"
                 STOCK_TICKER -> "create.logistics.StockTicker"
                 BOILER -> "create.boiler.Boiler"
+                PUMP -> "create.actuators.Pump"
+                CLUTCH -> "create.actuators.Clutch"
             }
 }
 
@@ -833,4 +895,50 @@ internal fun latchingValidity(check: () -> Boolean): () -> Boolean {
         if (valid) valid = check()
         valid
     }
+}
+
+internal interface PumpAccess : CreateDeviceEndpoint {
+    fun reversed(): Boolean
+
+    fun setReversed(reversed: Boolean): Boolean
+}
+
+internal interface ClutchAccess : CreateDeviceEndpoint {
+    fun connected(): Boolean
+
+    fun setConnected(connected: Boolean): Boolean
+}
+
+private class PumpEndpoint(
+    level: ServerLevel,
+    position: BlockPos,
+    entity: PumpBlockEntity,
+    reachable: () -> Boolean,
+) : BoundCreateEndpoint<PumpBlockEntity>(level, position, entity, reachable),
+    PumpAccess {
+    override fun reversed(): Boolean = entity.blockState.getValue(ProgrammablePumpBlock.REVERSED)
+
+    override fun setReversed(reversed: Boolean): Boolean {
+        val state = entity.blockState
+        val updated = ProgrammablePumpBlock.withReversed(state, reversed)
+        if (updated != state) level.setBlock(entity.blockPos, updated, Block.UPDATE_ALL)
+        return reversed()
+    }
+}
+
+private class ClutchEndpoint(
+    level: ServerLevel,
+    position: BlockPos,
+    entity: ProgrammableClutchBlockEntity,
+    reachable: () -> Boolean,
+) : BoundCreateEndpoint<ProgrammableClutchBlockEntity>(level, position, entity, reachable),
+    ClutchAccess,
+    CompuktersLeasedPeripheralEndpoint {
+    override fun acquire() = entity.acquire(this)
+
+    override fun release() = entity.release(this)
+
+    override fun connected(): Boolean = entity.connected()
+
+    override fun setConnected(connected: Boolean): Boolean = entity.setConnected(this, connected)
 }

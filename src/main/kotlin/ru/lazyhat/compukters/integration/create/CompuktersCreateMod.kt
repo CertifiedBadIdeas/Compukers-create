@@ -18,11 +18,16 @@
 
 package ru.lazyhat.compukters.integration.create
 
+import net.neoforged.bus.api.IEventBus
 import net.neoforged.fml.common.Mod
+import ru.lazyhat.compukters.integration.create.actuators.ProgrammableActuators
 
 @Mod(CompuktersCreateMod.MOD_ID)
-class CompuktersCreateMod {
+class CompuktersCreateMod(
+    bus: IEventBus,
+) {
     init {
+        ProgrammableActuators.register(bus)
         CreatePeripheralIntegration.register()
     }
 

@@ -201,6 +201,14 @@ val verifyProductionJar =
                 "ru/lazyhat/compukters/integration/create/CompuktersCreateMod.class",
                 "ru/lazyhat/compukters/integration/create/CreatePeripheralIntegration.class",
                 "META-INF/compukters/addons/create.cagb",
+                "assets/compukters_create/blockstates/programmable_pump.json",
+                "assets/compukters_create/blockstates/programmable_clutch.json",
+                "assets/compukters_create/models/item/programmable_pump.json",
+                "assets/compukters_create/models/item/programmable_clutch.json",
+                "data/compukters_create/recipe/programmable_pump.json",
+                "data/compukters_create/recipe/programmable_clutch.json",
+                "data/compukters_create/loot_table/blocks/programmable_pump.json",
+                "data/compukters_create/loot_table/blocks/programmable_clutch.json",
             ).forEach { required ->
                 check(entries.count { it == required } == 1) { "$required is missing or duplicated in ${archive.name}" }
             }

@@ -29,3 +29,7 @@ operation create create 1 26 active create.boiler.BoilerBindings.isPassive fun(I
 operation create create 1 27 active create.boiler.BoilerBindings.level fun(Int):Int
 operation create create 1 28 active create.boiler.BoilerBindings.waterSupply fun(Int):Float
 operation create create 1 29 active create.boiler.BoilerBindings.waterLevel fun(Int):Int
+operation create create 1 30 active create.actuators.ActuatorBindings.pumpReversed fun(Int):Boolean
+operation create create 1 31 active create.actuators.ActuatorBindings.setPumpReversed fun(Int,Boolean):Boolean
+operation create create 1 32 active create.actuators.ActuatorBindings.clutchConnected fun(Int):Boolean
+operation create create 1 33 active create.actuators.ActuatorBindings.setClutchConnected fun(Int,Boolean):Boolean

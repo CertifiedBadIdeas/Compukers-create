@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "create:mechanical_pump"
+    },
+    {
+      "item": "compukters:redstone_port"
+    }
+  ],
+  "result": {
+    "id": "compukters_create:programmable_pump",
+    "count": 1
+  }
+}

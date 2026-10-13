@@ -1,6 +1,6 @@
 # Compukters: Create
 
-Independent kinetics, Stock Ticker logistics and boiler integration for Minecraft 1.21.1.
+Independent kinetics, programmable pumps and clutches, Stock Ticker logistics and boiler integration for Minecraft 1.21.1.
 
 Installation, upstream versions, Guest Kotlin examples, device lifetime and development commands are maintained in the
 [canonical Wiki guide](https://certifiedbadideas.github.io/Compukters/CREATE/).

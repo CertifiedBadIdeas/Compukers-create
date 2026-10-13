@@ -271,6 +271,87 @@ class CreateHostStateTest {
         assertTrue(waitingHost.poll(64).isEmpty())
     }
 
+    @Test
+    fun `appended actuator operations use typed shared handles and reject stale endpoints`() {
+        var reversed = false
+        var connected = false
+        var available = true
+        val pump =
+            object : PumpAccess {
+                override val identity: Any = this
+
+                override fun valid() = available
+
+                override fun reversed() = reversed
+
+                override fun setReversed(value: Boolean): Boolean {
+                    reversed = value
+                    return reversed
+                }
+            }
+        val clutch =
+            object : ClutchAccess {
+                override val identity: Any = this
+
+                override fun valid() = available
+
+                override fun connected() = connected
+
+                override fun setConnected(value: Boolean): Boolean {
+                    connected = value
+                    return connected
+                }
+            }
+        val state =
+            CreateHostState(
+                resolveSide = { _, _ -> null },
+                resolveName = { _, _ -> CreateNamedResolution.Failed(HostFailureKind.UNAVAILABLE, "missing") },
+                resolveHandle = { handle, kind ->
+                    when (kind) {
+                        PeripheralKind.PUMP -> {
+                            assertEquals(7, handle)
+                            pump
+                        }
+
+                        PeripheralKind.CLUTCH -> {
+                            assertEquals(8, handle)
+                            clutch
+                        }
+
+                        else -> {
+                            error("wrong actuator contract")
+                        }
+                    }
+                },
+            )
+        val host = CreateAddonContract.host(state)
+
+        fun invoke(
+            operation: Int,
+            handle: Int,
+            value: Boolean? = null,
+        ): HostResponse {
+            val args = mutableListOf<VmValue>(VmValue.I32(handle))
+            if (value != null) args.add(VmValue.Bool(value))
+            return assertIs<ProgramAddonDispatch.Completed>(
+                host.dispatch(
+                    ProgramAddonRequest(VmHostRequestIdentity(1, nextRequestId++), CREATE, operation, args),
+                ),
+            ).response
+        }
+        assertEquals(HostResponse.BoolSuccess(false), invoke(30, 7))
+        assertEquals(HostResponse.BoolSuccess(true), invoke(31, 7, true))
+        assertEquals(HostResponse.BoolSuccess(true), invoke(30, 7))
+        assertEquals(HostResponse.BoolSuccess(false), invoke(32, 8))
+        assertEquals(HostResponse.BoolSuccess(true), invoke(33, 8, true))
+        assertEquals(HostResponse.BoolSuccess(false), invoke(33, 8, false))
+        available = false
+        assertIs<HostResponse.Failure>(invoke(31, 7, false))
+        assertTrue(reversed)
+        assertIs<HostResponse.Failure>(invoke(33, 8, true))
+        assertFalse(connected)
+    }
+
     private fun ProgramAddonHost.completed(
         operation: Int,
         vararg arguments: Int,
