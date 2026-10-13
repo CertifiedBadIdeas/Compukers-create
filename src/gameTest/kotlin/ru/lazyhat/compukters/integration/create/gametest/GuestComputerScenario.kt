@@ -71,6 +71,14 @@ internal class GuestComputerScenario(
         awaitOperation(sequence)
     }
 
+    fun stop(sequence: GameTestSequence) {
+        sequence.thenExecute {
+            operation = computer.submitTerminalKeyAsync(TerminalKey.C, TerminalKeyAction.PRESS, setOf(TerminalModifier.CONTROL))
+        }
+        awaitOperation(sequence)
+        awaitText(sequence, ">\n")
+    }
+
     private fun writeFile(
         sequence: GameTestSequence,
         path: String,
