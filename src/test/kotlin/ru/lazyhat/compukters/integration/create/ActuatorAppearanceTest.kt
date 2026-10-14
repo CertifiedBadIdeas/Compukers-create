@@ -121,6 +121,8 @@ class ActuatorAppearanceTest {
                 val outward = if (face == "south" || face == "east") 1 else -1
                 val low = screen.getAsJsonArray("from")
                 val high = screen.getAsJsonArray("to")
+                assertEquals(1.95, low[tangent].asDouble, "Ring must reach the neighboring screen at its corner")
+                assertEquals(14.05, high[tangent].asDouble, "Ring must reach the neighboring screen at its corner")
                 val center = (low[1].asDouble + high[1].asDouble) / 2
                 assertTrue(center == 1.5 || center == 14.5)
                 val surface = if (outward == 1) 14.0 else 2.0

@@ -3,6 +3,7 @@
   "parent": "create:block/block",
   "textures": {
     "4": "minecraft:block/copper_block",
+    "pipe_end": "create:block/pump",
     "particle": "minecraft:block/copper_block"
   },
   "elements": [
@@ -38,7 +39,7 @@
         "up": {
           "uv": [0, 0, 6, 6],
           "rotation": 180,
-          "texture": "#4"
+          "texture": "#pipe_end"
         },
         "down": {
           "uv": [0, 0, 6, 6],
@@ -82,7 +83,7 @@
         },
         "down": {
           "uv": [0, 0, 6, 6],
-          "texture": "#4"
+          "texture": "#pipe_end"
         }
       }
     },

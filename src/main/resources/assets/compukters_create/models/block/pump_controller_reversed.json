@@ -1,15 +1,15 @@
 {
   "parent": "minecraft:block/block",
   "textures": {
-    "frame": "compukters:block/compukter/front",
+    "frame": "minecraft:block/polished_deepslate",
     "black": "minecraft:block/black_concrete",
-    "mark": "minecraft:block/lime_concrete"
+    "mark": "minecraft:block/cyan_concrete"
   },
   "elements": [
     {
       "name": "Display border",
-      "from": [5, 0.25, 14.025],
-      "to": [11, 2.75, 14.025],
+      "from": [1.975, 0.25, 14.025],
+      "to": [14.025, 2.75, 14.025],
       "faces": {
         "south": {"texture": "#frame", "uv": [1, 1, 2, 2]}
       },
@@ -17,8 +17,8 @@
     },
     {
       "name": "Display screen",
-      "from": [5.25, 0.5, 14.05],
-      "to": [10.75, 2.5, 14.05],
+      "from": [1.95, 0.5, 14.05],
+      "to": [14.05, 2.5, 14.05],
       "faces": {
         "south": {"texture": "#black", "uv": [0, 0, 16, 16]}
       },
@@ -134,8 +134,8 @@
     },
     {
       "name": "Display border",
-      "from": [5, 13.25, 14.025],
-      "to": [11, 15.75, 14.025],
+      "from": [1.975, 13.25, 14.025],
+      "to": [14.025, 15.75, 14.025],
       "faces": {
         "south": {"texture": "#frame", "uv": [1, 1, 2, 2]}
       },
@@ -143,8 +143,8 @@
     },
     {
       "name": "Display screen",
-      "from": [5.25, 13.5, 14.05],
-      "to": [10.75, 15.5, 14.05],
+      "from": [1.95, 13.5, 14.05],
+      "to": [14.05, 15.5, 14.05],
       "faces": {
         "south": {"texture": "#black", "uv": [0, 0, 16, 16]}
       },
@@ -260,8 +260,8 @@
     },
     {
       "name": "Display border",
-      "from": [14.025, 0.25, 5],
-      "to": [14.025, 2.75, 11],
+      "from": [14.025, 0.25, 1.975],
+      "to": [14.025, 2.75, 14.025],
       "faces": {
         "east": {"texture": "#frame", "uv": [1, 1, 2, 2]}
       },
@@ -269,8 +269,8 @@
     },
     {
       "name": "Display screen",
-      "from": [14.05, 0.5, 5.25],
-      "to": [14.05, 2.5, 10.75],
+      "from": [14.05, 0.5, 1.95],
+      "to": [14.05, 2.5, 14.05],
       "faces": {
         "east": {"texture": "#black", "uv": [0, 0, 16, 16]}
       },
@@ -386,8 +386,8 @@
     },
     {
       "name": "Display border",
-      "from": [14.025, 13.25, 5],
-      "to": [14.025, 15.75, 11],
+      "from": [14.025, 13.25, 1.975],
+      "to": [14.025, 15.75, 14.025],
       "faces": {
         "east": {"texture": "#frame", "uv": [1, 1, 2, 2]}
       },
@@ -395,8 +395,8 @@
     },
     {
       "name": "Display screen",
-      "from": [14.05, 13.5, 5.25],
-      "to": [14.05, 15.5, 10.75],
+      "from": [14.05, 13.5, 1.95],
+      "to": [14.05, 15.5, 14.05],
       "faces": {
         "east": {"texture": "#black", "uv": [0, 0, 16, 16]}
       },
@@ -512,8 +512,8 @@
     },
     {
       "name": "Display border",
-      "from": [5, 0.25, 1.975],
-      "to": [11, 2.75, 1.975],
+      "from": [1.975, 0.25, 1.975],
+      "to": [14.025, 2.75, 1.975],
       "faces": {
         "north": {"texture": "#frame", "uv": [1, 1, 2, 2]}
       },
@@ -521,8 +521,8 @@
     },
     {
       "name": "Display screen",
-      "from": [5.25, 0.5, 1.95],
-      "to": [10.75, 2.5, 1.95],
+      "from": [1.95, 0.5, 1.95],
+      "to": [14.05, 2.5, 1.95],
       "faces": {
         "north": {"texture": "#black", "uv": [0, 0, 16, 16]}
       },
@@ -638,8 +638,8 @@
     },
     {
       "name": "Display border",
-      "from": [5, 13.25, 1.975],
-      "to": [11, 15.75, 1.975],
+      "from": [1.975, 13.25, 1.975],
+      "to": [14.025, 15.75, 1.975],
       "faces": {
         "north": {"texture": "#frame", "uv": [1, 1, 2, 2]}
       },
@@ -647,8 +647,8 @@
     },
     {
       "name": "Display screen",
-      "from": [5.25, 13.5, 1.95],
-      "to": [10.75, 15.5, 1.95],
+      "from": [1.95, 13.5, 1.95],
+      "to": [14.05, 15.5, 1.95],
       "faces": {
         "north": {"texture": "#black", "uv": [0, 0, 16, 16]}
       },
@@ -764,8 +764,8 @@
     },
     {
       "name": "Display border",
-      "from": [1.975, 0.25, 5],
-      "to": [1.975, 2.75, 11],
+      "from": [1.975, 0.25, 1.975],
+      "to": [1.975, 2.75, 14.025],
       "faces": {
         "west": {"texture": "#frame", "uv": [1, 1, 2, 2]}
       },
@@ -773,8 +773,8 @@
     },
     {
       "name": "Display screen",
-      "from": [1.95, 0.5, 5.25],
-      "to": [1.95, 2.5, 10.75],
+      "from": [1.95, 0.5, 1.95],
+      "to": [1.95, 2.5, 14.05],
       "faces": {
         "west": {"texture": "#black", "uv": [0, 0, 16, 16]}
       },
@@ -890,8 +890,8 @@
     },
     {
       "name": "Display border",
-      "from": [1.975, 13.25, 5],
-      "to": [1.975, 15.75, 11],
+      "from": [1.975, 13.25, 1.975],
+      "to": [1.975, 15.75, 14.025],
       "faces": {
         "west": {"texture": "#frame", "uv": [1, 1, 2, 2]}
       },
@@ -899,8 +899,8 @@
     },
     {
       "name": "Display screen",
-      "from": [1.95, 13.5, 5.25],
-      "to": [1.95, 15.5, 10.75],
+      "from": [1.95, 13.5, 1.95],
+      "to": [1.95, 15.5, 14.05],
       "faces": {
         "west": {"texture": "#black", "uv": [0, 0, 16, 16]}
       },
