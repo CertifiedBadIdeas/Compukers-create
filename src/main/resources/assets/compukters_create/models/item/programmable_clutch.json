@@ -8,11 +8,10 @@
     "end": "create:block/funnel/andesite_funnel_frame",
     "shaft": "create:block/axis",
     "shaft_end": "create:block/axis_top",
-    "particle": "create:block/clutch_off",
-    "0": "create:block/clutch_off",
+    "particle": "compukters_create:block/clutch_blue",
+    "0": "compukters_create:block/clutch_blue",
     "1": "create:block/gearbox",
-    "2": "create:block/funnel/andesite_funnel_frame",
-    "blue": "compukters:block/compukter/front"
+    "2": "create:block/funnel/andesite_funnel_frame"
   },
   "elements": [
     {
@@ -142,7 +141,7 @@
       "from": [6, 2, 0],
       "to": [10, 4, 0],
       "faces": {
-        "north": {"texture": "#blue", "uv": [1.0, 1.75, 2.0, 2.0]}
+        "north": {"texture": "#0", "uv": [2, 6, 4, 10], "rotation": 270}
       }
     },
     {
@@ -150,7 +149,7 @@
       "from": [6, 12, 0],
       "to": [10, 14, 0],
       "faces": {
-        "north": {"texture": "#blue", "uv": [1.0, 1.0, 2.0, 1.25]}
+        "north": {"texture": "#0", "uv": [12, 6, 14, 10], "rotation": 270}
       }
     },
     {
@@ -254,7 +253,7 @@
       "from": [6, 2, 16],
       "to": [10, 4, 16],
       "faces": {
-        "south": {"texture": "#blue", "uv": [1.0, 1.75, 2.0, 2.0]}
+        "south": {"texture": "#0", "uv": [2, 6, 4, 10], "rotation": 270}
       }
     },
     {
@@ -262,7 +261,7 @@
       "from": [6, 12, 16],
       "to": [10, 14, 16],
       "faces": {
-        "south": {"texture": "#blue", "uv": [1.0, 1.0, 2.0, 1.25]}
+        "south": {"texture": "#0", "uv": [12, 6, 14, 10], "rotation": 270}
       }
     },
     {
@@ -366,7 +365,7 @@
       "from": [16, 2, 6],
       "to": [16, 4, 10],
       "faces": {
-        "east": {"texture": "#blue", "uv": [1.0, 1.75, 2.0, 2.0]}
+        "east": {"texture": "#0", "uv": [2, 6, 4, 10], "rotation": 270}
       }
     },
     {
@@ -374,7 +373,7 @@
       "from": [16, 12, 6],
       "to": [16, 14, 10],
       "faces": {
-        "east": {"texture": "#blue", "uv": [1.0, 1.0, 2.0, 1.25]}
+        "east": {"texture": "#0", "uv": [12, 6, 14, 10], "rotation": 270}
       }
     },
     {
@@ -478,7 +477,7 @@
       "from": [0, 2, 6],
       "to": [0, 4, 10],
       "faces": {
-        "west": {"texture": "#blue", "uv": [1.0, 1.75, 2.0, 2.0]}
+        "west": {"texture": "#0", "uv": [2, 6, 4, 10], "rotation": 270}
       }
     },
     {
@@ -486,7 +485,7 @@
       "from": [0, 12, 6],
       "to": [0, 14, 10],
       "faces": {
-        "west": {"texture": "#blue", "uv": [1.0, 1.0, 2.0, 1.25]}
+        "west": {"texture": "#0", "uv": [12, 6, 14, 10], "rotation": 270}
       }
     },
     {

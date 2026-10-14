@@ -207,6 +207,8 @@ val verifyProductionJar =
                 "assets/compukters_create/models/block/pump_controller_reversed.json",
                 "assets/compukters_create/models/block/pump_body.json",
                 "assets/compukters_create/models/block/clutch_body.json",
+                "assets/compukters_create/textures/block/clutch_blue.png",
+                "META-INF/licenses/create-clutch-texture.txt",
                 "assets/compukters_create/models/block/clutch_controller_open.json",
                 "assets/compukters_create/models/block/clutch_controller_closed.json",
                 "assets/compukters_create/models/item/programmable_pump.json",

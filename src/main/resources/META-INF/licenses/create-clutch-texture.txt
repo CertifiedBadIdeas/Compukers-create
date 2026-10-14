@@ -1,0 +1,7 @@
+clutch_blue.png is a recolored derivative of Create clutch_off.png.
+Original asset: Copyright (c) The Create Team / The Creators of Create.
+Upstream assets license: All Rights Reserved (not covered by this addon's Apache-2.0 license).
+Source: Create 6.0.10-280, assets/create/textures/block/clutch_off.png
+https://github.com/Creators-of-Create/Create/blob/mc1.21.1-6.0.10/LICENSE.md
+Original SHA-256: 563be8b70d94f8206a73725f5eee1a33b4d1b3740fb76423d8955f350cb70884
+Only red palette entries were changed to blue; pixel indices are unchanged.
