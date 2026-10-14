@@ -26,8 +26,35 @@
     },
     {
       "name": "Flow arrow stem",
+      "from": [6.0, 1.5, 14.075],
+      "to": [6.5, 2.25, 14.075],
+      "faces": {
+        "south": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow stem",
       "from": [7.75, 1.5, 14.075],
       "to": [8.25, 2.25, 14.075],
+      "faces": {
+        "south": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow stem",
+      "from": [9.5, 1.5, 14.075],
+      "to": [10.0, 2.25, 14.075],
+      "faces": {
+        "south": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [5.5, 1.25, 14.075],
+      "to": [7.0, 1.5, 14.075],
       "faces": {
         "south": {"texture": "#mark", "uv": [0, 0, 16, 16]}
       },
@@ -44,6 +71,24 @@
     },
     {
       "name": "Flow arrow head",
+      "from": [9.0, 1.25, 14.075],
+      "to": [10.5, 1.5, 14.075],
+      "faces": {
+        "south": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [5.75, 1.0, 14.075],
+      "to": [6.75, 1.25, 14.075],
+      "faces": {
+        "south": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
       "from": [7.5, 1.0, 14.075],
       "to": [8.5, 1.25, 14.075],
       "faces": {
@@ -53,8 +98,35 @@
     },
     {
       "name": "Flow arrow head",
+      "from": [9.25, 1.0, 14.075],
+      "to": [10.25, 1.25, 14.075],
+      "faces": {
+        "south": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [6.0, 0.75, 14.075],
+      "to": [6.5, 1.0, 14.075],
+      "faces": {
+        "south": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
       "from": [7.75, 0.75, 14.075],
       "to": [8.25, 1.0, 14.075],
+      "faces": {
+        "south": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [9.5, 0.75, 14.075],
+      "to": [10.0, 1.0, 14.075],
       "faces": {
         "south": {"texture": "#mark", "uv": [0, 0, 16, 16]}
       },
@@ -80,8 +152,35 @@
     },
     {
       "name": "Flow arrow stem",
+      "from": [6.0, 14.5, 14.075],
+      "to": [6.5, 15.25, 14.075],
+      "faces": {
+        "south": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow stem",
       "from": [7.75, 14.5, 14.075],
       "to": [8.25, 15.25, 14.075],
+      "faces": {
+        "south": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow stem",
+      "from": [9.5, 14.5, 14.075],
+      "to": [10.0, 15.25, 14.075],
+      "faces": {
+        "south": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [5.5, 14.25, 14.075],
+      "to": [7.0, 14.5, 14.075],
       "faces": {
         "south": {"texture": "#mark", "uv": [0, 0, 16, 16]}
       },
@@ -98,8 +197,44 @@
     },
     {
       "name": "Flow arrow head",
+      "from": [9.0, 14.25, 14.075],
+      "to": [10.5, 14.5, 14.075],
+      "faces": {
+        "south": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [5.75, 14.0, 14.075],
+      "to": [6.75, 14.25, 14.075],
+      "faces": {
+        "south": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
       "from": [7.5, 14.0, 14.075],
       "to": [8.5, 14.25, 14.075],
+      "faces": {
+        "south": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [9.25, 14.0, 14.075],
+      "to": [10.25, 14.25, 14.075],
+      "faces": {
+        "south": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [6.0, 13.75, 14.075],
+      "to": [6.5, 14.0, 14.075],
       "faces": {
         "south": {"texture": "#mark", "uv": [0, 0, 16, 16]}
       },
@@ -111,6 +246,771 @@
       "to": [8.25, 14.0, 14.075],
       "faces": {
         "south": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [9.5, 13.75, 14.075],
+      "to": [10.0, 14.0, 14.075],
+      "faces": {
+        "south": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Display border",
+      "from": [14.025, 0.25, 5],
+      "to": [14.025, 2.75, 11],
+      "faces": {
+        "east": {"texture": "#frame", "uv": [1, 1, 2, 2]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Display screen",
+      "from": [14.05, 0.5, 5.25],
+      "to": [14.05, 2.5, 10.75],
+      "faces": {
+        "east": {"texture": "#black", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow stem",
+      "from": [14.075, 1.5, 9.5],
+      "to": [14.075, 2.25, 10.0],
+      "faces": {
+        "east": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow stem",
+      "from": [14.075, 1.5, 7.75],
+      "to": [14.075, 2.25, 8.25],
+      "faces": {
+        "east": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow stem",
+      "from": [14.075, 1.5, 6.0],
+      "to": [14.075, 2.25, 6.5],
+      "faces": {
+        "east": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [14.075, 1.25, 9.0],
+      "to": [14.075, 1.5, 10.5],
+      "faces": {
+        "east": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [14.075, 1.25, 7.25],
+      "to": [14.075, 1.5, 8.75],
+      "faces": {
+        "east": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [14.075, 1.25, 5.5],
+      "to": [14.075, 1.5, 7.0],
+      "faces": {
+        "east": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [14.075, 1.0, 9.25],
+      "to": [14.075, 1.25, 10.25],
+      "faces": {
+        "east": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [14.075, 1.0, 7.5],
+      "to": [14.075, 1.25, 8.5],
+      "faces": {
+        "east": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [14.075, 1.0, 5.75],
+      "to": [14.075, 1.25, 6.75],
+      "faces": {
+        "east": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [14.075, 0.75, 9.5],
+      "to": [14.075, 1.0, 10.0],
+      "faces": {
+        "east": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [14.075, 0.75, 7.75],
+      "to": [14.075, 1.0, 8.25],
+      "faces": {
+        "east": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [14.075, 0.75, 6.0],
+      "to": [14.075, 1.0, 6.5],
+      "faces": {
+        "east": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Display border",
+      "from": [14.025, 13.25, 5],
+      "to": [14.025, 15.75, 11],
+      "faces": {
+        "east": {"texture": "#frame", "uv": [1, 1, 2, 2]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Display screen",
+      "from": [14.05, 13.5, 5.25],
+      "to": [14.05, 15.5, 10.75],
+      "faces": {
+        "east": {"texture": "#black", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow stem",
+      "from": [14.075, 14.5, 9.5],
+      "to": [14.075, 15.25, 10.0],
+      "faces": {
+        "east": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow stem",
+      "from": [14.075, 14.5, 7.75],
+      "to": [14.075, 15.25, 8.25],
+      "faces": {
+        "east": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow stem",
+      "from": [14.075, 14.5, 6.0],
+      "to": [14.075, 15.25, 6.5],
+      "faces": {
+        "east": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [14.075, 14.25, 9.0],
+      "to": [14.075, 14.5, 10.5],
+      "faces": {
+        "east": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [14.075, 14.25, 7.25],
+      "to": [14.075, 14.5, 8.75],
+      "faces": {
+        "east": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [14.075, 14.25, 5.5],
+      "to": [14.075, 14.5, 7.0],
+      "faces": {
+        "east": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [14.075, 14.0, 9.25],
+      "to": [14.075, 14.25, 10.25],
+      "faces": {
+        "east": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [14.075, 14.0, 7.5],
+      "to": [14.075, 14.25, 8.5],
+      "faces": {
+        "east": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [14.075, 14.0, 5.75],
+      "to": [14.075, 14.25, 6.75],
+      "faces": {
+        "east": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [14.075, 13.75, 9.5],
+      "to": [14.075, 14.0, 10.0],
+      "faces": {
+        "east": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [14.075, 13.75, 7.75],
+      "to": [14.075, 14.0, 8.25],
+      "faces": {
+        "east": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [14.075, 13.75, 6.0],
+      "to": [14.075, 14.0, 6.5],
+      "faces": {
+        "east": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Display border",
+      "from": [5, 0.25, 1.975],
+      "to": [11, 2.75, 1.975],
+      "faces": {
+        "north": {"texture": "#frame", "uv": [1, 1, 2, 2]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Display screen",
+      "from": [5.25, 0.5, 1.95],
+      "to": [10.75, 2.5, 1.95],
+      "faces": {
+        "north": {"texture": "#black", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow stem",
+      "from": [9.5, 1.5, 1.925],
+      "to": [10.0, 2.25, 1.925],
+      "faces": {
+        "north": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow stem",
+      "from": [7.75, 1.5, 1.925],
+      "to": [8.25, 2.25, 1.925],
+      "faces": {
+        "north": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow stem",
+      "from": [6.0, 1.5, 1.925],
+      "to": [6.5, 2.25, 1.925],
+      "faces": {
+        "north": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [9.0, 1.25, 1.925],
+      "to": [10.5, 1.5, 1.925],
+      "faces": {
+        "north": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [7.25, 1.25, 1.925],
+      "to": [8.75, 1.5, 1.925],
+      "faces": {
+        "north": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [5.5, 1.25, 1.925],
+      "to": [7.0, 1.5, 1.925],
+      "faces": {
+        "north": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [9.25, 1.0, 1.925],
+      "to": [10.25, 1.25, 1.925],
+      "faces": {
+        "north": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [7.5, 1.0, 1.925],
+      "to": [8.5, 1.25, 1.925],
+      "faces": {
+        "north": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [5.75, 1.0, 1.925],
+      "to": [6.75, 1.25, 1.925],
+      "faces": {
+        "north": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [9.5, 0.75, 1.925],
+      "to": [10.0, 1.0, 1.925],
+      "faces": {
+        "north": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [7.75, 0.75, 1.925],
+      "to": [8.25, 1.0, 1.925],
+      "faces": {
+        "north": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [6.0, 0.75, 1.925],
+      "to": [6.5, 1.0, 1.925],
+      "faces": {
+        "north": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Display border",
+      "from": [5, 13.25, 1.975],
+      "to": [11, 15.75, 1.975],
+      "faces": {
+        "north": {"texture": "#frame", "uv": [1, 1, 2, 2]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Display screen",
+      "from": [5.25, 13.5, 1.95],
+      "to": [10.75, 15.5, 1.95],
+      "faces": {
+        "north": {"texture": "#black", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow stem",
+      "from": [9.5, 14.5, 1.925],
+      "to": [10.0, 15.25, 1.925],
+      "faces": {
+        "north": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow stem",
+      "from": [7.75, 14.5, 1.925],
+      "to": [8.25, 15.25, 1.925],
+      "faces": {
+        "north": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow stem",
+      "from": [6.0, 14.5, 1.925],
+      "to": [6.5, 15.25, 1.925],
+      "faces": {
+        "north": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [9.0, 14.25, 1.925],
+      "to": [10.5, 14.5, 1.925],
+      "faces": {
+        "north": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [7.25, 14.25, 1.925],
+      "to": [8.75, 14.5, 1.925],
+      "faces": {
+        "north": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [5.5, 14.25, 1.925],
+      "to": [7.0, 14.5, 1.925],
+      "faces": {
+        "north": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [9.25, 14.0, 1.925],
+      "to": [10.25, 14.25, 1.925],
+      "faces": {
+        "north": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [7.5, 14.0, 1.925],
+      "to": [8.5, 14.25, 1.925],
+      "faces": {
+        "north": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [5.75, 14.0, 1.925],
+      "to": [6.75, 14.25, 1.925],
+      "faces": {
+        "north": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [9.5, 13.75, 1.925],
+      "to": [10.0, 14.0, 1.925],
+      "faces": {
+        "north": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [7.75, 13.75, 1.925],
+      "to": [8.25, 14.0, 1.925],
+      "faces": {
+        "north": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [6.0, 13.75, 1.925],
+      "to": [6.5, 14.0, 1.925],
+      "faces": {
+        "north": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Display border",
+      "from": [1.975, 0.25, 5],
+      "to": [1.975, 2.75, 11],
+      "faces": {
+        "west": {"texture": "#frame", "uv": [1, 1, 2, 2]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Display screen",
+      "from": [1.95, 0.5, 5.25],
+      "to": [1.95, 2.5, 10.75],
+      "faces": {
+        "west": {"texture": "#black", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow stem",
+      "from": [1.925, 1.5, 6.0],
+      "to": [1.925, 2.25, 6.5],
+      "faces": {
+        "west": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow stem",
+      "from": [1.925, 1.5, 7.75],
+      "to": [1.925, 2.25, 8.25],
+      "faces": {
+        "west": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow stem",
+      "from": [1.925, 1.5, 9.5],
+      "to": [1.925, 2.25, 10.0],
+      "faces": {
+        "west": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [1.925, 1.25, 5.5],
+      "to": [1.925, 1.5, 7.0],
+      "faces": {
+        "west": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [1.925, 1.25, 7.25],
+      "to": [1.925, 1.5, 8.75],
+      "faces": {
+        "west": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [1.925, 1.25, 9.0],
+      "to": [1.925, 1.5, 10.5],
+      "faces": {
+        "west": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [1.925, 1.0, 5.75],
+      "to": [1.925, 1.25, 6.75],
+      "faces": {
+        "west": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [1.925, 1.0, 7.5],
+      "to": [1.925, 1.25, 8.5],
+      "faces": {
+        "west": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [1.925, 1.0, 9.25],
+      "to": [1.925, 1.25, 10.25],
+      "faces": {
+        "west": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [1.925, 0.75, 6.0],
+      "to": [1.925, 1.0, 6.5],
+      "faces": {
+        "west": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [1.925, 0.75, 7.75],
+      "to": [1.925, 1.0, 8.25],
+      "faces": {
+        "west": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [1.925, 0.75, 9.5],
+      "to": [1.925, 1.0, 10.0],
+      "faces": {
+        "west": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Display border",
+      "from": [1.975, 13.25, 5],
+      "to": [1.975, 15.75, 11],
+      "faces": {
+        "west": {"texture": "#frame", "uv": [1, 1, 2, 2]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Display screen",
+      "from": [1.95, 13.5, 5.25],
+      "to": [1.95, 15.5, 10.75],
+      "faces": {
+        "west": {"texture": "#black", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow stem",
+      "from": [1.925, 14.5, 6.0],
+      "to": [1.925, 15.25, 6.5],
+      "faces": {
+        "west": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow stem",
+      "from": [1.925, 14.5, 7.75],
+      "to": [1.925, 15.25, 8.25],
+      "faces": {
+        "west": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow stem",
+      "from": [1.925, 14.5, 9.5],
+      "to": [1.925, 15.25, 10.0],
+      "faces": {
+        "west": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [1.925, 14.25, 5.5],
+      "to": [1.925, 14.5, 7.0],
+      "faces": {
+        "west": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [1.925, 14.25, 7.25],
+      "to": [1.925, 14.5, 8.75],
+      "faces": {
+        "west": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [1.925, 14.25, 9.0],
+      "to": [1.925, 14.5, 10.5],
+      "faces": {
+        "west": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [1.925, 14.0, 5.75],
+      "to": [1.925, 14.25, 6.75],
+      "faces": {
+        "west": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [1.925, 14.0, 7.5],
+      "to": [1.925, 14.25, 8.5],
+      "faces": {
+        "west": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [1.925, 14.0, 9.25],
+      "to": [1.925, 14.25, 10.25],
+      "faces": {
+        "west": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [1.925, 13.75, 6.0],
+      "to": [1.925, 14.0, 6.5],
+      "faces": {
+        "west": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [1.925, 13.75, 7.75],
+      "to": [1.925, 14.0, 8.25],
+      "faces": {
+        "west": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Flow arrow head",
+      "from": [1.925, 13.75, 9.5],
+      "to": [1.925, 14.0, 10.0],
+      "faces": {
+        "west": {"texture": "#mark", "uv": [0, 0, 16, 16]}
       },
       "shade": false
     }

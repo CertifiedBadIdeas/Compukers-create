@@ -95,45 +95,62 @@ class ActuatorAppearanceTest {
                 }
             assertTrue(indicators.isNotEmpty(), model)
             for (indicator in indicators) {
-                assertEquals(indicator.getAsJsonArray("from")[2], indicator.getAsJsonArray("to")[2], model)
-                assertEquals(setOf("south"), indicator.getAsJsonObject("faces").keySet(), model)
+                val face = indicator.getAsJsonObject("faces").keySet().single()
+                assertTrue(face in setOf("north", "south", "east", "west"), model)
+                val normal = if (face == "north" || face == "south") 2 else 0
+                assertEquals(indicator.getAsJsonArray("from")[normal], indicator.getAsJsonArray("to")[normal], model)
             }
         }
     }
 
     @Test
-    fun `pump arrows are centered on compact end displays without a socket`() {
+    fun `three pump arrows fit each end display on all four sides`() {
         for (model in listOf("block/pump_controller", "block/pump_controller_reversed", "item/programmable_pump")) {
             val elements = resource("models/$model.json").getAsJsonArray("elements").map { it.asJsonObject }
             assertTrue(elements.none { it["name"]?.asString?.startsWith("Socket") == true })
             val screens = elements.filter { it["name"]?.asString == "Display screen" }
-            assertEquals(2, screens.size)
+            assertEquals(8, screens.size)
+            assertEquals(
+                mapOf("north" to 2, "south" to 2, "east" to 2, "west" to 2),
+                screens.groupingBy { it.getAsJsonObject("faces").keySet().single() }.eachCount(),
+            )
             for (screen in screens) {
+                val face = screen.getAsJsonObject("faces").keySet().single()
+                val tangent = if (face == "north" || face == "south") 0 else 2
+                val normal = if (tangent == 0) 2 else 0
+                val outward = if (face == "south" || face == "east") 1 else -1
                 val low = screen.getAsJsonArray("from")
                 val high = screen.getAsJsonArray("to")
                 val center = (low[1].asDouble + high[1].asDouble) / 2
                 assertTrue(center == 1.5 || center == 14.5)
-                assertTrue(high[2].asDouble < 14.1)
+                val surface = if (outward == 1) 14.0 else 2.0
+                assertTrue((low[normal].asDouble - surface) * outward in 0.0..0.1)
                 assertEquals(2.0, high[1].asDouble - low[1].asDouble)
                 val arrow =
                     elements.filter {
                         it["name"]?.asString?.startsWith("Flow arrow") == true &&
+                            it.getAsJsonObject("faces").has(face) &&
                             it.getAsJsonArray("from")[1].asDouble >= low[1].asDouble &&
                             it.getAsJsonArray("to")[1].asDouble <= high[1].asDouble
                     }
-                assertTrue(arrow.isNotEmpty())
+                assertEquals(3, arrow.count { it["name"].asString == "Flow arrow stem" })
+                for (stroke in arrow) {
+                    assertTrue(stroke.getAsJsonArray("from")[tangent].asDouble > low[tangent].asDouble)
+                    assertTrue(stroke.getAsJsonArray("to")[tangent].asDouble < high[tangent].asDouble)
+                    assertTrue((stroke.getAsJsonArray("from")[normal].asDouble - low[normal].asDouble) * outward > 0)
+                }
 
                 fun minimum(axis: Int) = arrow.minOf { it.getAsJsonArray("from")[axis].asDouble }
 
                 fun maximum(axis: Int) = arrow.maxOf { it.getAsJsonArray("to")[axis].asDouble }
-                assertEquals(8.0, (minimum(0) + maximum(0)) / 2)
+                assertEquals(8.0, (minimum(tangent) + maximum(tangent)) / 2)
                 assertEquals(center, (minimum(1) + maximum(1)) / 2)
                 for ((index, first) in arrow.withIndex()) {
                     for (second in arrow.drop(index + 1)) {
                         fun overlap(axis: Int): Double =
                             minOf(first.getAsJsonArray("to")[axis].asDouble, second.getAsJsonArray("to")[axis].asDouble) -
                                 maxOf(first.getAsJsonArray("from")[axis].asDouble, second.getAsJsonArray("from")[axis].asDouble)
-                        assertTrue(overlap(0) <= 0.0 || overlap(1) <= 0.0, "Arrow strokes overlap on $model")
+                        assertTrue(overlap(tangent) <= 0.0 || overlap(1) <= 0.0, "Arrow strokes overlap on $model")
                     }
                 }
             }
