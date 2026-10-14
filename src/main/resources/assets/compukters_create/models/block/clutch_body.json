@@ -120,8 +120,20 @@
       }
     },
     {
-      "name": "Blue casing band",
+      "name": "Casing band end trim",
       "from": [6, 0, 0],
+      "to": [10, 2, 0],
+      "faces": {
+        "north": {
+          "texture": "#0",
+          "uv": [0, 6, 2, 10],
+          "rotation": 270
+        }
+      }
+    },
+    {
+      "name": "Blue casing band",
+      "from": [6, 2, 0],
       "to": [10, 4, 0],
       "faces": {
         "north": {"texture": "#blue", "uv": [1.0, 1.75, 2.0, 2.0]}
@@ -130,9 +142,21 @@
     {
       "name": "Blue casing band",
       "from": [6, 12, 0],
-      "to": [10, 16, 0],
+      "to": [10, 14, 0],
       "faces": {
         "north": {"texture": "#blue", "uv": [1.0, 1.0, 2.0, 1.25]}
+      }
+    },
+    {
+      "name": "Casing band end trim",
+      "from": [6, 14, 0],
+      "to": [10, 16, 0],
+      "faces": {
+        "north": {
+          "texture": "#0",
+          "uv": [14, 6, 16, 10],
+          "rotation": 270
+        }
       }
     },
     {
@@ -208,8 +232,20 @@
       }
     },
     {
-      "name": "Blue casing band",
+      "name": "Casing band end trim",
       "from": [6, 0, 16],
+      "to": [10, 2, 16],
+      "faces": {
+        "south": {
+          "texture": "#0",
+          "uv": [0, 6, 2, 10],
+          "rotation": 270
+        }
+      }
+    },
+    {
+      "name": "Blue casing band",
+      "from": [6, 2, 16],
       "to": [10, 4, 16],
       "faces": {
         "south": {"texture": "#blue", "uv": [1.0, 1.75, 2.0, 2.0]}
@@ -218,9 +254,21 @@
     {
       "name": "Blue casing band",
       "from": [6, 12, 16],
-      "to": [10, 16, 16],
+      "to": [10, 14, 16],
       "faces": {
         "south": {"texture": "#blue", "uv": [1.0, 1.0, 2.0, 1.25]}
+      }
+    },
+    {
+      "name": "Casing band end trim",
+      "from": [6, 14, 16],
+      "to": [10, 16, 16],
+      "faces": {
+        "south": {
+          "texture": "#0",
+          "uv": [14, 6, 16, 10],
+          "rotation": 270
+        }
       }
     },
     {
@@ -296,8 +344,20 @@
       }
     },
     {
-      "name": "Blue casing band",
+      "name": "Casing band end trim",
       "from": [16, 0, 6],
+      "to": [16, 2, 10],
+      "faces": {
+        "east": {
+          "texture": "#0",
+          "uv": [0, 6, 2, 10],
+          "rotation": 270
+        }
+      }
+    },
+    {
+      "name": "Blue casing band",
+      "from": [16, 2, 6],
       "to": [16, 4, 10],
       "faces": {
         "east": {"texture": "#blue", "uv": [1.0, 1.75, 2.0, 2.0]}
@@ -306,9 +366,21 @@
     {
       "name": "Blue casing band",
       "from": [16, 12, 6],
-      "to": [16, 16, 10],
+      "to": [16, 14, 10],
       "faces": {
         "east": {"texture": "#blue", "uv": [1.0, 1.0, 2.0, 1.25]}
+      }
+    },
+    {
+      "name": "Casing band end trim",
+      "from": [16, 14, 6],
+      "to": [16, 16, 10],
+      "faces": {
+        "east": {
+          "texture": "#0",
+          "uv": [14, 6, 16, 10],
+          "rotation": 270
+        }
       }
     },
     {
@@ -384,8 +456,20 @@
       }
     },
     {
-      "name": "Blue casing band",
+      "name": "Casing band end trim",
       "from": [0, 0, 6],
+      "to": [0, 2, 10],
+      "faces": {
+        "west": {
+          "texture": "#0",
+          "uv": [0, 6, 2, 10],
+          "rotation": 270
+        }
+      }
+    },
+    {
+      "name": "Blue casing band",
+      "from": [0, 2, 6],
       "to": [0, 4, 10],
       "faces": {
         "west": {"texture": "#blue", "uv": [1.0, 1.75, 2.0, 2.0]}
@@ -394,9 +478,21 @@
     {
       "name": "Blue casing band",
       "from": [0, 12, 6],
-      "to": [0, 16, 10],
+      "to": [0, 14, 10],
       "faces": {
         "west": {"texture": "#blue", "uv": [1.0, 1.0, 2.0, 1.25]}
+      }
+    },
+    {
+      "name": "Casing band end trim",
+      "from": [0, 14, 6],
+      "to": [0, 16, 10],
+      "faces": {
+        "west": {
+          "texture": "#0",
+          "uv": [14, 6, 16, 10],
+          "rotation": 270
+        }
       }
     },
     {
