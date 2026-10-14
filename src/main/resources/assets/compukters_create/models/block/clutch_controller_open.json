@@ -3,165 +3,330 @@
   "textures": {
     "frame": "compukters:block/compukter/front",
     "black": "minecraft:block/black_concrete",
-    "brass": "create:block/brass_block",
-    "metal": "minecraft:block/iron_block",
-    "mark": "minecraft:block/lime_concrete"
+    "mark": "minecraft:block/red_concrete"
   },
   "elements": [
     {
-      "name": "Controller frame",
+      "name": "Clutch indicator frame",
       "from": [4, 4, 16],
-      "to": [12, 12, 17],
+      "to": [12, 4.5, 16],
       "faces": {
-        "north": {"texture": "#frame", "uv": [1, 1, 2, 2]},
-        "south": {"texture": "#frame", "uv": [1, 1, 2, 2]},
-        "east": {"texture": "#frame", "uv": [1, 1, 2, 2]},
-        "west": {"texture": "#frame", "uv": [1, 1, 2, 2]},
-        "up": {"texture": "#frame", "uv": [1, 1, 2, 2]},
-        "down": {"texture": "#frame", "uv": [1, 1, 2, 2]}
-      }
+        "south": {"texture": "#frame", "uv": [1, 1, 2, 2]}
+      },
+      "shade": false
     },
     {
-      "name": "Inset black panel",
-      "from": [4.75, 4.75, 17],
-      "to": [11.25, 11.25, 17.125],
+      "name": "Clutch indicator frame",
+      "from": [4, 11.5, 16],
+      "to": [12, 12, 16],
       "faces": {
-        "north": {"texture": "#black", "uv": [0, 0, 16, 16]},
-        "south": {"texture": "#black", "uv": [0, 0, 16, 16]},
-        "east": {"texture": "#black", "uv": [0, 0, 16, 16]},
-        "west": {"texture": "#black", "uv": [0, 0, 16, 16]},
-        "up": {"texture": "#black", "uv": [0, 0, 16, 16]},
-        "down": {"texture": "#black", "uv": [0, 0, 16, 16]}
-      }
+        "south": {"texture": "#frame", "uv": [1, 1, 2, 2]}
+      },
+      "shade": false
     },
     {
-      "name": "Brass fastener",
-      "from": [4.25, 4.25, 17],
-      "to": [4.75, 4.75, 17.2],
+      "name": "Clutch indicator frame",
+      "from": [4, 4.5, 16],
+      "to": [4.5, 11.5, 16],
       "faces": {
-        "north": {"texture": "#brass", "uv": [0, 0, 16, 16]},
-        "south": {"texture": "#brass", "uv": [0, 0, 16, 16]},
-        "east": {"texture": "#brass", "uv": [0, 0, 16, 16]},
-        "west": {"texture": "#brass", "uv": [0, 0, 16, 16]},
-        "up": {"texture": "#brass", "uv": [0, 0, 16, 16]},
-        "down": {"texture": "#brass", "uv": [0, 0, 16, 16]}
-      }
+        "south": {"texture": "#frame", "uv": [1, 1, 2, 2]}
+      },
+      "shade": false
     },
     {
-      "name": "Brass fastener",
-      "from": [4.25, 11.25, 17],
-      "to": [4.75, 11.75, 17.2],
+      "name": "Clutch indicator frame",
+      "from": [11.5, 4.5, 16],
+      "to": [12, 11.5, 16],
       "faces": {
-        "north": {"texture": "#brass", "uv": [0, 0, 16, 16]},
-        "south": {"texture": "#brass", "uv": [0, 0, 16, 16]},
-        "east": {"texture": "#brass", "uv": [0, 0, 16, 16]},
-        "west": {"texture": "#brass", "uv": [0, 0, 16, 16]},
-        "up": {"texture": "#brass", "uv": [0, 0, 16, 16]},
-        "down": {"texture": "#brass", "uv": [0, 0, 16, 16]}
-      }
+        "south": {"texture": "#frame", "uv": [1, 1, 2, 2]}
+      },
+      "shade": false
     },
     {
-      "name": "Brass fastener",
-      "from": [11.25, 4.25, 17],
-      "to": [11.75, 4.75, 17.2],
+      "name": "Clutch indicator background",
+      "from": [4.5, 4.5, 16],
+      "to": [11.5, 7.5, 16],
       "faces": {
-        "north": {"texture": "#brass", "uv": [0, 0, 16, 16]},
-        "south": {"texture": "#brass", "uv": [0, 0, 16, 16]},
-        "east": {"texture": "#brass", "uv": [0, 0, 16, 16]},
-        "west": {"texture": "#brass", "uv": [0, 0, 16, 16]},
-        "up": {"texture": "#brass", "uv": [0, 0, 16, 16]},
-        "down": {"texture": "#brass", "uv": [0, 0, 16, 16]}
-      }
+        "south": {"texture": "#black", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
     },
     {
-      "name": "Brass fastener",
-      "from": [11.25, 11.25, 17],
-      "to": [11.75, 11.75, 17.2],
+      "name": "Clutch indicator background",
+      "from": [4.5, 8.5, 16],
+      "to": [11.5, 11.5, 16],
       "faces": {
-        "north": {"texture": "#brass", "uv": [0, 0, 16, 16]},
-        "south": {"texture": "#brass", "uv": [0, 0, 16, 16]},
-        "east": {"texture": "#brass", "uv": [0, 0, 16, 16]},
-        "west": {"texture": "#brass", "uv": [0, 0, 16, 16]},
-        "up": {"texture": "#brass", "uv": [0, 0, 16, 16]},
-        "down": {"texture": "#brass", "uv": [0, 0, 16, 16]}
-      }
+        "south": {"texture": "#black", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
     },
     {
-      "name": "Socket rim",
-      "from": [8.75, 5.25, 17.125],
-      "to": [10.75, 7.25, 17.4],
+      "name": "Clutch indicator background",
+      "from": [4.5, 7.5, 16],
+      "to": [5, 8.5, 16],
       "faces": {
-        "north": {"texture": "#metal", "uv": [0, 0, 16, 16]},
-        "south": {"texture": "#metal", "uv": [0, 0, 16, 16]},
-        "east": {"texture": "#metal", "uv": [0, 0, 16, 16]},
-        "west": {"texture": "#metal", "uv": [0, 0, 16, 16]},
-        "up": {"texture": "#metal", "uv": [0, 0, 16, 16]},
-        "down": {"texture": "#metal", "uv": [0, 0, 16, 16]}
-      }
+        "south": {"texture": "#black", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
     },
     {
-      "name": "Socket interior",
-      "from": [9, 5.5, 17.4],
-      "to": [10.5, 7, 17.45],
+      "name": "Clutch indicator background",
+      "from": [11, 7.5, 16],
+      "to": [11.5, 8.5, 16],
       "faces": {
-        "north": {"texture": "#black", "uv": [0, 0, 16, 16]},
-        "south": {"texture": "#black", "uv": [0, 0, 16, 16]},
-        "east": {"texture": "#black", "uv": [0, 0, 16, 16]},
-        "west": {"texture": "#black", "uv": [0, 0, 16, 16]},
-        "up": {"texture": "#black", "uv": [0, 0, 16, 16]},
-        "down": {"texture": "#black", "uv": [0, 0, 16, 16]}
-      }
+        "south": {"texture": "#black", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
     },
     {
-      "name": "Socket contact",
-      "from": [9.25, 5.75, 17.45],
-      "to": [9.5, 6.75, 17.5],
-      "faces": {
-        "north": {"texture": "#brass", "uv": [0, 0, 16, 16]},
-        "south": {"texture": "#brass", "uv": [0, 0, 16, 16]},
-        "east": {"texture": "#brass", "uv": [0, 0, 16, 16]},
-        "west": {"texture": "#brass", "uv": [0, 0, 16, 16]},
-        "up": {"texture": "#brass", "uv": [0, 0, 16, 16]},
-        "down": {"texture": "#brass", "uv": [0, 0, 16, 16]}
-      }
-    },
-    {
-      "name": "Socket contact",
-      "from": [10, 5.75, 17.45],
-      "to": [10.25, 6.75, 17.5],
-      "faces": {
-        "north": {"texture": "#brass", "uv": [0, 0, 16, 16]},
-        "south": {"texture": "#brass", "uv": [0, 0, 16, 16]},
-        "east": {"texture": "#brass", "uv": [0, 0, 16, 16]},
-        "west": {"texture": "#brass", "uv": [0, 0, 16, 16]},
-        "up": {"texture": "#brass", "uv": [0, 0, 16, 16]},
-        "down": {"texture": "#brass", "uv": [0, 0, 16, 16]}
-      }
-    },
-    {
-      "name": "Input contact",
-      "from": [5.25, 8.5, 17.15],
-      "to": [6.25, 9.25, 17.15],
+      "name": "Clutch state bar",
+      "from": [5, 7.5, 16],
+      "to": [11, 8.5, 16],
       "faces": {
         "south": {"texture": "#mark", "uv": [0, 0, 16, 16]}
       },
       "shade": false
     },
     {
-      "name": "Output contact",
-      "from": [9.75, 8.5, 17.15],
-      "to": [10.75, 9.25, 17.15],
+      "name": "Clutch indicator frame",
+      "from": [16, 4, 4],
+      "to": [16, 4.5, 12],
       "faces": {
-        "south": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+        "east": {"texture": "#frame", "uv": [1, 1, 2, 2]}
       },
       "shade": false
     },
     {
-      "name": "Open bridge",
-      "from": [6.25, 9.5, 17.15],
-      "to": [9.25, 10.25, 17.15],
+      "name": "Clutch indicator frame",
+      "from": [16, 11.5, 4],
+      "to": [16, 12, 12],
       "faces": {
-        "south": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+        "east": {"texture": "#frame", "uv": [1, 1, 2, 2]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Clutch indicator frame",
+      "from": [16, 4.5, 4],
+      "to": [16, 11.5, 4.5],
+      "faces": {
+        "east": {"texture": "#frame", "uv": [1, 1, 2, 2]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Clutch indicator frame",
+      "from": [16, 4.5, 11.5],
+      "to": [16, 11.5, 12],
+      "faces": {
+        "east": {"texture": "#frame", "uv": [1, 1, 2, 2]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Clutch indicator background",
+      "from": [16, 4.5, 4.5],
+      "to": [16, 7.5, 11.5],
+      "faces": {
+        "east": {"texture": "#black", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Clutch indicator background",
+      "from": [16, 8.5, 4.5],
+      "to": [16, 11.5, 11.5],
+      "faces": {
+        "east": {"texture": "#black", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Clutch indicator background",
+      "from": [16, 7.5, 4.5],
+      "to": [16, 8.5, 5],
+      "faces": {
+        "east": {"texture": "#black", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Clutch indicator background",
+      "from": [16, 7.5, 11],
+      "to": [16, 8.5, 11.5],
+      "faces": {
+        "east": {"texture": "#black", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Clutch state bar",
+      "from": [16, 7.5, 5],
+      "to": [16, 8.5, 11],
+      "faces": {
+        "east": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Clutch indicator frame",
+      "from": [4, 4, 0],
+      "to": [12, 4.5, 0],
+      "faces": {
+        "north": {"texture": "#frame", "uv": [1, 1, 2, 2]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Clutch indicator frame",
+      "from": [4, 11.5, 0],
+      "to": [12, 12, 0],
+      "faces": {
+        "north": {"texture": "#frame", "uv": [1, 1, 2, 2]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Clutch indicator frame",
+      "from": [4, 4.5, 0],
+      "to": [4.5, 11.5, 0],
+      "faces": {
+        "north": {"texture": "#frame", "uv": [1, 1, 2, 2]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Clutch indicator frame",
+      "from": [11.5, 4.5, 0],
+      "to": [12, 11.5, 0],
+      "faces": {
+        "north": {"texture": "#frame", "uv": [1, 1, 2, 2]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Clutch indicator background",
+      "from": [4.5, 4.5, 0],
+      "to": [11.5, 7.5, 0],
+      "faces": {
+        "north": {"texture": "#black", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Clutch indicator background",
+      "from": [4.5, 8.5, 0],
+      "to": [11.5, 11.5, 0],
+      "faces": {
+        "north": {"texture": "#black", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Clutch indicator background",
+      "from": [4.5, 7.5, 0],
+      "to": [5, 8.5, 0],
+      "faces": {
+        "north": {"texture": "#black", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Clutch indicator background",
+      "from": [11, 7.5, 0],
+      "to": [11.5, 8.5, 0],
+      "faces": {
+        "north": {"texture": "#black", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Clutch state bar",
+      "from": [5, 7.5, 0],
+      "to": [11, 8.5, 0],
+      "faces": {
+        "north": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Clutch indicator frame",
+      "from": [0, 4, 4],
+      "to": [0, 4.5, 12],
+      "faces": {
+        "west": {"texture": "#frame", "uv": [1, 1, 2, 2]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Clutch indicator frame",
+      "from": [0, 11.5, 4],
+      "to": [0, 12, 12],
+      "faces": {
+        "west": {"texture": "#frame", "uv": [1, 1, 2, 2]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Clutch indicator frame",
+      "from": [0, 4.5, 4],
+      "to": [0, 11.5, 4.5],
+      "faces": {
+        "west": {"texture": "#frame", "uv": [1, 1, 2, 2]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Clutch indicator frame",
+      "from": [0, 4.5, 11.5],
+      "to": [0, 11.5, 12],
+      "faces": {
+        "west": {"texture": "#frame", "uv": [1, 1, 2, 2]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Clutch indicator background",
+      "from": [0, 4.5, 4.5],
+      "to": [0, 7.5, 11.5],
+      "faces": {
+        "west": {"texture": "#black", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Clutch indicator background",
+      "from": [0, 8.5, 4.5],
+      "to": [0, 11.5, 11.5],
+      "faces": {
+        "west": {"texture": "#black", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Clutch indicator background",
+      "from": [0, 7.5, 4.5],
+      "to": [0, 8.5, 5],
+      "faces": {
+        "west": {"texture": "#black", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Clutch indicator background",
+      "from": [0, 7.5, 11],
+      "to": [0, 8.5, 11.5],
+      "faces": {
+        "west": {"texture": "#black", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
+    },
+    {
+      "name": "Clutch state bar",
+      "from": [0, 7.5, 5],
+      "to": [0, 8.5, 11],
+      "faces": {
+        "west": {"texture": "#mark", "uv": [0, 0, 16, 16]}
       },
       "shade": false
     }

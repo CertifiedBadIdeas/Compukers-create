@@ -89,7 +89,7 @@ class ActuatorAppearanceTest {
                 resource("models/$model.json").getAsJsonArray("elements").map { it.asJsonObject }.filter {
                     it["name"]?.asString?.let { name ->
                         name.startsWith("Flow arrow") ||
-                            name in listOf("Input contact", "Output contact", "Open bridge", "Closed bridge")
+                            name == "Clutch state bar"
                     } ==
                         true
                 }
@@ -158,6 +158,75 @@ class ActuatorAppearanceTest {
     }
 
     @Test
+    fun `clutch bars show engagement relative to the shaft on all four sides`() {
+        for ((state, color) in mapOf("closed" to "lime_concrete", "open" to "red_concrete")) {
+            val model = resource("models/block/clutch_controller_$state.json")
+            assertEquals("minecraft:block/$color", model.getAsJsonObject("textures")["mark"].asString)
+            val elements = model.getAsJsonArray("elements").map { it.asJsonObject }
+            val bars = elements.filter { it["name"].asString == "Clutch state bar" }
+            assertEquals(setOf("north", "south", "east", "west"), bars.map { it.getAsJsonObject("faces").keySet().single() }.toSet())
+            assertEquals(4, bars.size)
+            for (bar in bars) {
+                val face = bar.getAsJsonObject("faces").keySet().single()
+                val tangent = if (face == "north" || face == "south") 0 else 2
+                val low = bar.getAsJsonArray("from")
+                val high = bar.getAsJsonArray("to")
+                assertEquals(if (state == "closed") 6.0 else 1.0, high[1].asDouble - low[1].asDouble)
+                assertEquals(if (state == "closed") 1.0 else 6.0, high[tangent].asDouble - low[tangent].asDouble)
+                assertEquals("#mark", bar.getAsJsonObject("faces").getAsJsonObject(face)["texture"].asString)
+            }
+        }
+        val item = resource("models/item/programmable_clutch.json")
+        val open = resource("models/block/clutch_controller_open.json")
+        assertEquals(open.getAsJsonObject("textures")["mark"], item.getAsJsonObject("textures")["mark"])
+        assertEquals(
+            open.getAsJsonArray("elements").toList(),
+            item.getAsJsonArray("elements").filter { it.asJsonObject["name"]?.asString?.startsWith("Clutch ") == true },
+        )
+    }
+
+    @Test
+    fun `clutch indicators fill the casing surface without protrusions or overlapping faces`() {
+        val body = resource("models/block/clutch_body.json").getAsJsonArray("elements").map { it.asJsonObject }
+        for (state in listOf("open", "closed")) {
+            val panel = resource("models/block/clutch_controller_$state.json").getAsJsonArray("elements").map { it.asJsonObject }
+            for (element in panel) {
+                assertEquals(1, element.getAsJsonObject("faces").size())
+                for (key in listOf("from", "to")) {
+                    assertTrue(element.getAsJsonArray(key).all { it.asDouble in 0.0..16.0 })
+                }
+            }
+            for (face in listOf("north", "south", "east", "west")) {
+                val normal = if (face == "north" || face == "south") 2 else 0
+                val tangent = if (normal == 2) 0 else 2
+                val surface = if (face == "south" || face == "east") 16.0 else 0.0
+                val quads =
+                    (body + panel).filter {
+                        it.getAsJsonObject("faces").has(face) &&
+                            it.getAsJsonArray("from")[normal].asDouble == surface &&
+                            it.getAsJsonArray("to")[normal].asDouble == surface
+                    }
+                assertEquals(
+                    256.0,
+                    quads.sumOf {
+                        val low = it.getAsJsonArray("from")
+                        val high = it.getAsJsonArray("to")
+                        (high[tangent].asDouble - low[tangent].asDouble) * (high[1].asDouble - low[1].asDouble)
+                    },
+                )
+                for ((index, first) in quads.withIndex()) {
+                    for (second in quads.drop(index + 1)) {
+                        fun overlap(axis: Int) =
+                            minOf(first.getAsJsonArray("to")[axis].asDouble, second.getAsJsonArray("to")[axis].asDouble) -
+                                maxOf(first.getAsJsonArray("from")[axis].asDouble, second.getAsJsonArray("from")[axis].asDouble)
+                        assertTrue(overlap(tangent) <= 0 || overlap(1) <= 0, "Coplanar faces overlap on $state $face")
+                    }
+                }
+            }
+        }
+    }
+
+    @Test
     fun `clutch switches only its controller indicator`() {
         val parts = resource("blockstates/programmable_clutch.json").getAsJsonArray("multipart").map { it.asJsonObject }
         for (axis in listOf("x", "y", "z")) {
@@ -169,6 +238,19 @@ class ActuatorAppearanceTest {
                             it.getAsJsonObject("apply")["model"].asString.endsWith("/clutch_body")
                     }.getAsJsonObject("apply")
             assertEquals(body(false), body(true), axis)
+            for (powered in listOf(false, true)) {
+                val controller =
+                    parts
+                        .single {
+                            val condition = it.getAsJsonObject("when")
+                            condition["axis"].asString == axis && condition["powered"].asBoolean == powered &&
+                                it.getAsJsonObject("apply")["model"].asString.contains("clutch_controller_")
+                        }.getAsJsonObject("apply")
+                val state = if (powered) "open" else "closed"
+                assertEquals("compukters_create:block/clutch_controller_$state", controller["model"].asString)
+                assertEquals(body(powered)["x"], controller["x"])
+                assertEquals(body(powered)["y"], controller["y"])
+            }
         }
     }
 }

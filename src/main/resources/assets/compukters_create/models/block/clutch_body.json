@@ -86,11 +86,35 @@
     {
       "name": "Casing side",
       "from": [0, 0, 0],
+      "to": [6, 4, 0],
+      "faces": {
+        "north": {
+          "texture": "#0",
+          "uv": [0.0, 0.0, 4.0, 6.0],
+          "rotation": 270
+        }
+      }
+    },
+    {
+      "name": "Casing side",
+      "from": [0, 12, 0],
       "to": [6, 16, 0],
       "faces": {
         "north": {
           "texture": "#0",
-          "uv": [0, 0, 16, 6],
+          "uv": [12.0, 0.0, 16.0, 6.0],
+          "rotation": 270
+        }
+      }
+    },
+    {
+      "name": "Casing side",
+      "from": [0, 4, 0],
+      "to": [4, 12, 0],
+      "faces": {
+        "north": {
+          "texture": "#0",
+          "uv": [4.0, 2.0, 12.0, 6.0],
           "rotation": 270
         }
       }
@@ -98,19 +122,51 @@
     {
       "name": "Blue casing band",
       "from": [6, 0, 0],
+      "to": [10, 4, 0],
+      "faces": {
+        "north": {"texture": "#blue", "uv": [1.0, 1.75, 2.0, 2.0]}
+      }
+    },
+    {
+      "name": "Blue casing band",
+      "from": [6, 12, 0],
       "to": [10, 16, 0],
       "faces": {
-        "north": {"texture": "#blue", "uv": [1, 1, 2, 2]}
+        "north": {"texture": "#blue", "uv": [1.0, 1.0, 2.0, 1.25]}
       }
     },
     {
       "name": "Casing side",
       "from": [10, 0, 0],
+      "to": [16, 4, 0],
+      "faces": {
+        "north": {
+          "texture": "#0",
+          "uv": [0.0, 10.0, 4.0, 16.0],
+          "rotation": 270
+        }
+      }
+    },
+    {
+      "name": "Casing side",
+      "from": [10, 12, 0],
       "to": [16, 16, 0],
       "faces": {
         "north": {
           "texture": "#0",
-          "uv": [0, 10, 16, 16],
+          "uv": [12.0, 10.0, 16.0, 16.0],
+          "rotation": 270
+        }
+      }
+    },
+    {
+      "name": "Casing side",
+      "from": [12, 4, 0],
+      "to": [16, 12, 0],
+      "faces": {
+        "north": {
+          "texture": "#0",
+          "uv": [4.0, 10.0, 12.0, 14.0],
           "rotation": 270
         }
       }
@@ -118,11 +174,35 @@
     {
       "name": "Casing side",
       "from": [0, 0, 16],
+      "to": [6, 4, 16],
+      "faces": {
+        "south": {
+          "texture": "#0",
+          "uv": [0.0, 0.0, 4.0, 6.0],
+          "rotation": 270
+        }
+      }
+    },
+    {
+      "name": "Casing side",
+      "from": [0, 12, 16],
       "to": [6, 16, 16],
       "faces": {
         "south": {
           "texture": "#0",
-          "uv": [0, 0, 16, 6],
+          "uv": [12.0, 0.0, 16.0, 6.0],
+          "rotation": 270
+        }
+      }
+    },
+    {
+      "name": "Casing side",
+      "from": [0, 4, 16],
+      "to": [4, 12, 16],
+      "faces": {
+        "south": {
+          "texture": "#0",
+          "uv": [4.0, 0.0, 12.0, 4.0],
           "rotation": 270
         }
       }
@@ -130,19 +210,51 @@
     {
       "name": "Blue casing band",
       "from": [6, 0, 16],
+      "to": [10, 4, 16],
+      "faces": {
+        "south": {"texture": "#blue", "uv": [1.0, 1.75, 2.0, 2.0]}
+      }
+    },
+    {
+      "name": "Blue casing band",
+      "from": [6, 12, 16],
       "to": [10, 16, 16],
       "faces": {
-        "south": {"texture": "#blue", "uv": [1, 1, 2, 2]}
+        "south": {"texture": "#blue", "uv": [1.0, 1.0, 2.0, 1.25]}
       }
     },
     {
       "name": "Casing side",
       "from": [10, 0, 16],
+      "to": [16, 4, 16],
+      "faces": {
+        "south": {
+          "texture": "#0",
+          "uv": [0.0, 10.0, 4.0, 16.0],
+          "rotation": 270
+        }
+      }
+    },
+    {
+      "name": "Casing side",
+      "from": [10, 12, 16],
       "to": [16, 16, 16],
       "faces": {
         "south": {
           "texture": "#0",
-          "uv": [0, 10, 16, 16],
+          "uv": [12.0, 10.0, 16.0, 16.0],
+          "rotation": 270
+        }
+      }
+    },
+    {
+      "name": "Casing side",
+      "from": [12, 4, 16],
+      "to": [16, 12, 16],
+      "faces": {
+        "south": {
+          "texture": "#0",
+          "uv": [4.0, 12.0, 12.0, 16.0],
           "rotation": 270
         }
       }
@@ -150,11 +262,35 @@
     {
       "name": "Casing side",
       "from": [16, 0, 0],
+      "to": [16, 4, 6],
+      "faces": {
+        "east": {
+          "texture": "#0",
+          "uv": [0.0, 0.0, 4.0, 6.0],
+          "rotation": 270
+        }
+      }
+    },
+    {
+      "name": "Casing side",
+      "from": [16, 12, 0],
       "to": [16, 16, 6],
       "faces": {
         "east": {
           "texture": "#0",
-          "uv": [0, 0, 16, 6],
+          "uv": [12.0, 0.0, 16.0, 6.0],
+          "rotation": 270
+        }
+      }
+    },
+    {
+      "name": "Casing side",
+      "from": [16, 4, 0],
+      "to": [16, 12, 4],
+      "faces": {
+        "east": {
+          "texture": "#0",
+          "uv": [4.0, 2.0, 12.0, 6.0],
           "rotation": 270
         }
       }
@@ -162,19 +298,51 @@
     {
       "name": "Blue casing band",
       "from": [16, 0, 6],
+      "to": [16, 4, 10],
+      "faces": {
+        "east": {"texture": "#blue", "uv": [1.0, 1.75, 2.0, 2.0]}
+      }
+    },
+    {
+      "name": "Blue casing band",
+      "from": [16, 12, 6],
       "to": [16, 16, 10],
       "faces": {
-        "east": {"texture": "#blue", "uv": [1, 1, 2, 2]}
+        "east": {"texture": "#blue", "uv": [1.0, 1.0, 2.0, 1.25]}
       }
     },
     {
       "name": "Casing side",
       "from": [16, 0, 10],
+      "to": [16, 4, 16],
+      "faces": {
+        "east": {
+          "texture": "#0",
+          "uv": [0.0, 10.0, 4.0, 16.0],
+          "rotation": 270
+        }
+      }
+    },
+    {
+      "name": "Casing side",
+      "from": [16, 12, 10],
       "to": [16, 16, 16],
       "faces": {
         "east": {
           "texture": "#0",
-          "uv": [0, 10, 16, 16],
+          "uv": [12.0, 10.0, 16.0, 16.0],
+          "rotation": 270
+        }
+      }
+    },
+    {
+      "name": "Casing side",
+      "from": [16, 4, 12],
+      "to": [16, 12, 16],
+      "faces": {
+        "east": {
+          "texture": "#0",
+          "uv": [4.0, 10.0, 12.0, 14.0],
           "rotation": 270
         }
       }
@@ -182,11 +350,35 @@
     {
       "name": "Casing side",
       "from": [0, 0, 0],
+      "to": [0, 4, 6],
+      "faces": {
+        "west": {
+          "texture": "#0",
+          "uv": [0.0, 0.0, 4.0, 6.0],
+          "rotation": 270
+        }
+      }
+    },
+    {
+      "name": "Casing side",
+      "from": [0, 12, 0],
       "to": [0, 16, 6],
       "faces": {
         "west": {
           "texture": "#0",
-          "uv": [0, 0, 16, 6],
+          "uv": [12.0, 0.0, 16.0, 6.0],
+          "rotation": 270
+        }
+      }
+    },
+    {
+      "name": "Casing side",
+      "from": [0, 4, 0],
+      "to": [0, 12, 4],
+      "faces": {
+        "west": {
+          "texture": "#0",
+          "uv": [4.0, 0.0, 12.0, 4.0],
           "rotation": 270
         }
       }
@@ -194,19 +386,51 @@
     {
       "name": "Blue casing band",
       "from": [0, 0, 6],
+      "to": [0, 4, 10],
+      "faces": {
+        "west": {"texture": "#blue", "uv": [1.0, 1.75, 2.0, 2.0]}
+      }
+    },
+    {
+      "name": "Blue casing band",
+      "from": [0, 12, 6],
       "to": [0, 16, 10],
       "faces": {
-        "west": {"texture": "#blue", "uv": [1, 1, 2, 2]}
+        "west": {"texture": "#blue", "uv": [1.0, 1.0, 2.0, 1.25]}
       }
     },
     {
       "name": "Casing side",
       "from": [0, 0, 10],
+      "to": [0, 4, 16],
+      "faces": {
+        "west": {
+          "texture": "#0",
+          "uv": [0.0, 10.0, 4.0, 16.0],
+          "rotation": 270
+        }
+      }
+    },
+    {
+      "name": "Casing side",
+      "from": [0, 12, 10],
       "to": [0, 16, 16],
       "faces": {
         "west": {
           "texture": "#0",
-          "uv": [0, 10, 16, 16],
+          "uv": [12.0, 10.0, 16.0, 16.0],
+          "rotation": 270
+        }
+      }
+    },
+    {
+      "name": "Casing side",
+      "from": [0, 4, 12],
+      "to": [0, 12, 16],
+      "faces": {
+        "west": {
+          "texture": "#0",
+          "uv": [4.0, 12.0, 12.0, 16.0],
           "rotation": 270
         }
       }
