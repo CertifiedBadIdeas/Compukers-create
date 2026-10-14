@@ -24,6 +24,8 @@ import com.simibubi.create.content.kinetics.base.SingleAxisRotatingVisual
 import com.simibubi.create.content.kinetics.transmission.SplitShaftRenderer
 import com.simibubi.create.content.kinetics.transmission.SplitShaftVisual
 import dev.engine_room.flywheel.lib.visualization.SimpleBlockEntityVisualizer
+import net.minecraft.client.renderer.ItemBlockRenderTypes
+import net.minecraft.client.renderer.RenderType
 import net.neoforged.api.distmarker.Dist
 import net.neoforged.bus.api.SubscribeEvent
 import net.neoforged.fml.common.EventBusSubscriber
@@ -44,6 +46,8 @@ object CreateActuatorClient {
     @SubscribeEvent
     fun setup(event: FMLClientSetupEvent) {
         event.enqueueWork {
+            // The inherited Create casing uses alpha holes around its recessed shaft faces.
+            ItemBlockRenderTypes.setRenderLayer(ProgrammableActuators.CLUTCH.get(), RenderType.cutoutMipped())
             SimpleBlockEntityVisualizer
                 .builder(ProgrammableActuators.PUMP_ENTITY.get())
                 .factory(SingleAxisRotatingVisual.ofZ(AllPartialModels.MECHANICAL_PUMP_COG))
