@@ -65,8 +65,9 @@ class ActuatorAppearanceTest {
         assertEquals(normal.size, reversed.size)
         normal.zip(reversed).forEach { (forward, backward) ->
             if (forward["name"].asString.startsWith("Flow arrow")) {
-                assertEquals(16.0, forward.getAsJsonArray("from")[1].asDouble + backward.getAsJsonArray("to")[1].asDouble)
-                assertEquals(16.0, forward.getAsJsonArray("to")[1].asDouble + backward.getAsJsonArray("from")[1].asDouble)
+                val center = if (forward.getAsJsonArray("from")[1].asDouble < 3.0) 1.5 else 14.5
+                assertEquals(2 * center, forward.getAsJsonArray("from")[1].asDouble + backward.getAsJsonArray("to")[1].asDouble)
+                assertEquals(2 * center, forward.getAsJsonArray("to")[1].asDouble + backward.getAsJsonArray("from")[1].asDouble)
                 assertEquals(forward.getAsJsonObject("faces"), backward.getAsJsonObject("faces"))
             } else {
                 assertEquals(forward, backward)
@@ -96,6 +97,37 @@ class ActuatorAppearanceTest {
             for (indicator in indicators) {
                 assertEquals(indicator.getAsJsonArray("from")[2], indicator.getAsJsonArray("to")[2], model)
                 assertEquals(setOf("south"), indicator.getAsJsonObject("faces").keySet(), model)
+            }
+        }
+    }
+
+    @Test
+    fun `pump arrows are centered on compact end displays without a socket`() {
+        for (model in listOf("block/pump_controller", "block/pump_controller_reversed", "item/programmable_pump")) {
+            val elements = resource("models/$model.json").getAsJsonArray("elements").map { it.asJsonObject }
+            assertTrue(elements.none { it["name"]?.asString?.startsWith("Socket") == true })
+            val screens = elements.filter { it["name"]?.asString == "Display screen" }
+            assertEquals(2, screens.size)
+            for (screen in screens) {
+                val low = screen.getAsJsonArray("from")
+                val high = screen.getAsJsonArray("to")
+                val center = (low[1].asDouble + high[1].asDouble) / 2
+                assertTrue(center == 1.5 || center == 14.5)
+                assertTrue(high[2].asDouble < 14.1)
+                assertEquals(2.0, high[1].asDouble - low[1].asDouble)
+                val arrow =
+                    elements.filter {
+                        it["name"]?.asString?.startsWith("Flow arrow") == true &&
+                            it.getAsJsonArray("from")[1].asDouble >= low[1].asDouble &&
+                            it.getAsJsonArray("to")[1].asDouble <= high[1].asDouble
+                    }
+                assertTrue(arrow.isNotEmpty())
+
+                fun minimum(axis: Int) = arrow.minOf { it.getAsJsonArray("from")[axis].asDouble }
+
+                fun maximum(axis: Int) = arrow.maxOf { it.getAsJsonArray("to")[axis].asDouble }
+                assertEquals(8.0, (minimum(0) + maximum(0)) / 2)
+                assertEquals(center, (minimum(1) + maximum(1)) / 2)
             }
         }
     }
