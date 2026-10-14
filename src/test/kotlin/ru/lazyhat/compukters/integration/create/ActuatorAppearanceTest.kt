@@ -171,9 +171,23 @@ class ActuatorAppearanceTest {
                 val tangent = if (face == "north" || face == "south") 0 else 2
                 val low = bar.getAsJsonArray("from")
                 val high = bar.getAsJsonArray("to")
-                assertEquals(if (state == "closed") 6.0 else 1.0, high[1].asDouble - low[1].asDouble)
-                assertEquals(if (state == "closed") 1.0 else 6.0, high[tangent].asDouble - low[tangent].asDouble)
+                assertEquals(if (state == "closed") 4.5 else 1.0, high[1].asDouble - low[1].asDouble)
+                assertEquals(if (state == "closed") 1.0 else 4.5, high[tangent].asDouble - low[tangent].asDouble)
                 assertEquals("#mark", bar.getAsJsonObject("faces").getAsJsonObject(face)["texture"].asString)
+                val along = if (state == "closed") 1 else tangent
+                val across = if (state == "closed") tangent else 1
+                val caps =
+                    elements
+                        .filter { it["name"].asString == "Clutch bar end cap" && it.getAsJsonObject("faces").has(face) }
+                        .sortedBy { it.getAsJsonArray("from")[along].asDouble }
+                assertEquals(2, caps.size)
+                assertEquals(low[along], caps.first().getAsJsonArray("to")[along])
+                assertEquals(high[along], caps.last().getAsJsonArray("from")[along])
+                for (cap in caps) {
+                    assertEquals("#frame", cap.getAsJsonObject("faces").getAsJsonObject(face)["texture"].asString)
+                    assertTrue(cap.getAsJsonArray("from")[across].asDouble < low[across].asDouble)
+                    assertTrue(cap.getAsJsonArray("to")[across].asDouble > high[across].asDouble)
+                }
             }
         }
         val item = resource("models/item/programmable_clutch.json")
