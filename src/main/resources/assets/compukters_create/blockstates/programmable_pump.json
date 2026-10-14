@@ -2,114 +2,250 @@
   "multipart": [
     {
       "when": {
-        "facing": "down"
+        "facing": "down",
+        "reversed": "false"
       },
       "apply": {
-        "model": "create:block/mechanical_pump/block",
+        "model": "compukters_create:block/pump_body",
         "x": 180
       }
     },
     {
       "when": {
-        "facing": "down"
+        "facing": "down",
+        "reversed": "false"
       },
       "apply": {
-        "x": 180,
+        "model": "compukters_create:block/pump_controller",
+        "x": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "down",
+        "reversed": "true"
+      },
+      "apply": {
+        "model": "compukters_create:block/pump_body"
+      }
+    },
+    {
+      "when": {
+        "facing": "down",
+        "reversed": "true"
+      },
+      "apply": {
+        "model": "compukters_create:block/pump_controller_reversed"
+      }
+    },
+    {
+      "when": {
+        "facing": "up",
+        "reversed": "false"
+      },
+      "apply": {
+        "model": "compukters_create:block/pump_body"
+      }
+    },
+    {
+      "when": {
+        "facing": "up",
+        "reversed": "false"
+      },
+      "apply": {
         "model": "compukters_create:block/pump_controller"
       }
     },
     {
       "when": {
-        "facing": "up"
+        "facing": "up",
+        "reversed": "true"
       },
       "apply": {
-        "model": "create:block/mechanical_pump/block"
+        "model": "compukters_create:block/pump_body",
+        "x": 180
       }
     },
     {
       "when": {
-        "facing": "up"
+        "facing": "up",
+        "reversed": "true"
       },
       "apply": {
-        "model": "compukters_create:block/pump_controller"
+        "model": "compukters_create:block/pump_controller_reversed",
+        "x": 180
       }
     },
     {
       "when": {
-        "facing": "north"
+        "facing": "north",
+        "reversed": "false"
       },
       "apply": {
-        "model": "create:block/mechanical_pump/block",
+        "model": "compukters_create:block/pump_body",
         "x": 90
       }
     },
     {
       "when": {
-        "facing": "north"
+        "facing": "north",
+        "reversed": "false"
       },
       "apply": {
-        "x": 90,
-        "model": "compukters_create:block/pump_controller"
+        "model": "compukters_create:block/pump_controller",
+        "x": 90
       }
     },
     {
       "when": {
-        "facing": "south"
+        "facing": "north",
+        "reversed": "true"
       },
       "apply": {
-        "model": "create:block/mechanical_pump/block",
+        "model": "compukters_create:block/pump_body",
         "x": 90,
         "y": 180
       }
     },
     {
       "when": {
-        "facing": "south"
+        "facing": "north",
+        "reversed": "true"
       },
       "apply": {
+        "model": "compukters_create:block/pump_controller_reversed",
         "x": 90,
-        "y": 180,
-        "model": "compukters_create:block/pump_controller"
+        "y": 180
       }
     },
     {
       "when": {
-        "facing": "west"
+        "facing": "south",
+        "reversed": "false"
       },
       "apply": {
-        "model": "create:block/mechanical_pump/block",
+        "model": "compukters_create:block/pump_body",
+        "x": 90,
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "reversed": "false"
+      },
+      "apply": {
+        "model": "compukters_create:block/pump_controller",
+        "x": 90,
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "reversed": "true"
+      },
+      "apply": {
+        "model": "compukters_create:block/pump_body",
+        "x": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "reversed": "true"
+      },
+      "apply": {
+        "model": "compukters_create:block/pump_controller_reversed",
+        "x": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "reversed": "false"
+      },
+      "apply": {
+        "model": "compukters_create:block/pump_body",
         "x": 90,
         "y": 270
       }
     },
     {
       "when": {
-        "facing": "west"
+        "facing": "west",
+        "reversed": "false"
       },
       "apply": {
+        "model": "compukters_create:block/pump_controller",
         "x": 90,
-        "y": 270,
-        "model": "compukters_create:block/pump_controller"
+        "y": 270
       }
     },
     {
       "when": {
-        "facing": "east"
+        "facing": "west",
+        "reversed": "true"
       },
       "apply": {
-        "model": "create:block/mechanical_pump/block",
+        "model": "compukters_create:block/pump_body",
         "x": 90,
         "y": 90
       }
     },
     {
       "when": {
-        "facing": "east"
+        "facing": "west",
+        "reversed": "true"
       },
       "apply": {
+        "model": "compukters_create:block/pump_controller_reversed",
         "x": 90,
-        "y": 90,
-        "model": "compukters_create:block/pump_controller"
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "reversed": "false"
+      },
+      "apply": {
+        "model": "compukters_create:block/pump_body",
+        "x": 90,
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "reversed": "false"
+      },
+      "apply": {
+        "model": "compukters_create:block/pump_controller",
+        "x": 90,
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "reversed": "true"
+      },
+      "apply": {
+        "model": "compukters_create:block/pump_body",
+        "x": 90,
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "reversed": "true"
+      },
+      "apply": {
+        "model": "compukters_create:block/pump_controller_reversed",
+        "x": 90,
+        "y": 270
       }
     }
   ]

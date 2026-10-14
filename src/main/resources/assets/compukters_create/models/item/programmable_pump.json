@@ -6,8 +6,9 @@
     "brass": "create:block/brass_block",
     "metal": "minecraft:block/iron_block",
     "mark": "minecraft:block/lime_concrete",
-    "body": "create:block/pump",
-    "particle": "create:block/pump"
+    "body": "minecraft:block/copper_block",
+    "particle": "minecraft:block/copper_block",
+    "rotor": "create:block/pump"
   },
   "elements": [
     {
@@ -37,16 +38,29 @@
       }
     },
     {
+      "name": "Unmarked copper tube",
+      "from": [5, 3, 5],
+      "to": [11, 13, 11],
+      "faces": {
+        "north": {"texture": "#body", "uv": [0, 0, 16, 16]},
+        "south": {"texture": "#body", "uv": [0, 0, 16, 16]},
+        "east": {"texture": "#body", "uv": [0, 0, 16, 16]},
+        "west": {"texture": "#body", "uv": [0, 0, 16, 16]},
+        "up": {"texture": "#body", "uv": [0, 0, 16, 16]},
+        "down": {"texture": "#body", "uv": [0, 0, 16, 16]}
+      }
+    },
+    {
       "name": "Rotor vane",
       "from": [0.5, 3.25, 6.5],
       "to": [15.5, 12.75, 9.5],
       "faces": {
-        "north": {"texture": "#body", "uv": [0, 9, 9, 14]},
-        "south": {"texture": "#body", "uv": [0, 9, 9, 14]},
-        "east": {"texture": "#body", "uv": [0, 9, 9, 14]},
-        "west": {"texture": "#body", "uv": [0, 9, 9, 14]},
-        "up": {"texture": "#body", "uv": [0, 9, 9, 14]},
-        "down": {"texture": "#body", "uv": [0, 9, 9, 14]}
+        "north": {"texture": "#rotor", "uv": [0, 9, 9, 14]},
+        "south": {"texture": "#rotor", "uv": [0, 9, 9, 14]},
+        "east": {"texture": "#rotor", "uv": [0, 9, 9, 14]},
+        "west": {"texture": "#rotor", "uv": [0, 9, 9, 14]},
+        "up": {"texture": "#rotor", "uv": [0, 9, 9, 14]},
+        "down": {"texture": "#rotor", "uv": [0, 9, 9, 14]}
       },
       "rotation": {
         "angle": 0,
@@ -59,12 +73,12 @@
       "from": [0.5, 3.25, 6.5],
       "to": [15.5, 12.75, 9.5],
       "faces": {
-        "north": {"texture": "#body", "uv": [0, 9, 9, 14]},
-        "south": {"texture": "#body", "uv": [0, 9, 9, 14]},
-        "east": {"texture": "#body", "uv": [0, 9, 9, 14]},
-        "west": {"texture": "#body", "uv": [0, 9, 9, 14]},
-        "up": {"texture": "#body", "uv": [0, 9, 9, 14]},
-        "down": {"texture": "#body", "uv": [0, 9, 9, 14]}
+        "north": {"texture": "#rotor", "uv": [0, 9, 9, 14]},
+        "south": {"texture": "#rotor", "uv": [0, 9, 9, 14]},
+        "east": {"texture": "#rotor", "uv": [0, 9, 9, 14]},
+        "west": {"texture": "#rotor", "uv": [0, 9, 9, 14]},
+        "up": {"texture": "#rotor", "uv": [0, 9, 9, 14]},
+        "down": {"texture": "#rotor", "uv": [0, 9, 9, 14]}
       },
       "rotation": {
         "angle": 45,
@@ -77,12 +91,12 @@
       "from": [0.5, 3.25, 6.5],
       "to": [15.5, 12.75, 9.5],
       "faces": {
-        "north": {"texture": "#body", "uv": [0, 9, 9, 14]},
-        "south": {"texture": "#body", "uv": [0, 9, 9, 14]},
-        "east": {"texture": "#body", "uv": [0, 9, 9, 14]},
-        "west": {"texture": "#body", "uv": [0, 9, 9, 14]},
-        "up": {"texture": "#body", "uv": [0, 9, 9, 14]},
-        "down": {"texture": "#body", "uv": [0, 9, 9, 14]}
+        "north": {"texture": "#rotor", "uv": [0, 9, 9, 14]},
+        "south": {"texture": "#rotor", "uv": [0, 9, 9, 14]},
+        "east": {"texture": "#rotor", "uv": [0, 9, 9, 14]},
+        "west": {"texture": "#rotor", "uv": [0, 9, 9, 14]},
+        "up": {"texture": "#rotor", "uv": [0, 9, 9, 14]},
+        "down": {"texture": "#rotor", "uv": [0, 9, 9, 14]}
       },
       "rotation": {
         "angle": -45,
@@ -248,81 +262,57 @@
     },
     {
       "name": "Flow arrow stem",
-      "from": [6, 6, 18.625],
-      "to": [7, 9.5, 18.75],
+      "from": [6, 6, 18.65],
+      "to": [7, 9.5, 18.65],
       "faces": {
-        "north": {"texture": "#mark", "uv": [0, 0, 16, 16]},
-        "south": {"texture": "#mark", "uv": [0, 0, 16, 16]},
-        "east": {"texture": "#mark", "uv": [0, 0, 16, 16]},
-        "west": {"texture": "#mark", "uv": [0, 0, 16, 16]},
-        "up": {"texture": "#mark", "uv": [0, 0, 16, 16]},
-        "down": {"texture": "#mark", "uv": [0, 0, 16, 16]}
-      }
+        "south": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
     },
     {
       "name": "Flow arrow head",
-      "from": [5, 8.5, 18.625],
-      "to": [6, 9.0, 18.75],
+      "from": [5, 8.5, 18.65],
+      "to": [6, 9.0, 18.65],
       "faces": {
-        "north": {"texture": "#mark", "uv": [0, 0, 16, 16]},
-        "south": {"texture": "#mark", "uv": [0, 0, 16, 16]},
-        "east": {"texture": "#mark", "uv": [0, 0, 16, 16]},
-        "west": {"texture": "#mark", "uv": [0, 0, 16, 16]},
-        "up": {"texture": "#mark", "uv": [0, 0, 16, 16]},
-        "down": {"texture": "#mark", "uv": [0, 0, 16, 16]}
-      }
+        "south": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
     },
     {
       "name": "Flow arrow head",
-      "from": [7, 8.5, 18.625],
-      "to": [8, 9.0, 18.75],
+      "from": [7, 8.5, 18.65],
+      "to": [8, 9.0, 18.65],
       "faces": {
-        "north": {"texture": "#mark", "uv": [0, 0, 16, 16]},
-        "south": {"texture": "#mark", "uv": [0, 0, 16, 16]},
-        "east": {"texture": "#mark", "uv": [0, 0, 16, 16]},
-        "west": {"texture": "#mark", "uv": [0, 0, 16, 16]},
-        "up": {"texture": "#mark", "uv": [0, 0, 16, 16]},
-        "down": {"texture": "#mark", "uv": [0, 0, 16, 16]}
-      }
+        "south": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
     },
     {
       "name": "Flow arrow head",
-      "from": [5.5, 9, 18.625],
-      "to": [6.5, 9.5, 18.75],
+      "from": [5.5, 9, 18.65],
+      "to": [6.5, 9.5, 18.65],
       "faces": {
-        "north": {"texture": "#mark", "uv": [0, 0, 16, 16]},
-        "south": {"texture": "#mark", "uv": [0, 0, 16, 16]},
-        "east": {"texture": "#mark", "uv": [0, 0, 16, 16]},
-        "west": {"texture": "#mark", "uv": [0, 0, 16, 16]},
-        "up": {"texture": "#mark", "uv": [0, 0, 16, 16]},
-        "down": {"texture": "#mark", "uv": [0, 0, 16, 16]}
-      }
+        "south": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
     },
     {
       "name": "Flow arrow head",
-      "from": [6.5, 9, 18.625],
-      "to": [7.5, 9.5, 18.75],
+      "from": [6.5, 9, 18.65],
+      "to": [7.5, 9.5, 18.65],
       "faces": {
-        "north": {"texture": "#mark", "uv": [0, 0, 16, 16]},
-        "south": {"texture": "#mark", "uv": [0, 0, 16, 16]},
-        "east": {"texture": "#mark", "uv": [0, 0, 16, 16]},
-        "west": {"texture": "#mark", "uv": [0, 0, 16, 16]},
-        "up": {"texture": "#mark", "uv": [0, 0, 16, 16]},
-        "down": {"texture": "#mark", "uv": [0, 0, 16, 16]}
-      }
+        "south": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
     },
     {
       "name": "Flow arrow head",
-      "from": [6, 9.5, 18.625],
-      "to": [7, 10.0, 18.75],
+      "from": [6, 9.5, 18.65],
+      "to": [7, 10.0, 18.65],
       "faces": {
-        "north": {"texture": "#mark", "uv": [0, 0, 16, 16]},
-        "south": {"texture": "#mark", "uv": [0, 0, 16, 16]},
-        "east": {"texture": "#mark", "uv": [0, 0, 16, 16]},
-        "west": {"texture": "#mark", "uv": [0, 0, 16, 16]},
-        "up": {"texture": "#mark", "uv": [0, 0, 16, 16]},
-        "down": {"texture": "#mark", "uv": [0, 0, 16, 16]}
-      }
+        "south": {"texture": "#mark", "uv": [0, 0, 16, 16]}
+      },
+      "shade": false
     }
   ],
   "display": {

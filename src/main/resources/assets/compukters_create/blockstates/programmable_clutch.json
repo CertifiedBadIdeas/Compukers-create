@@ -6,7 +6,7 @@
         "powered": "false"
       },
       "apply": {
-        "model": "create:block/clutch/block"
+        "model": "compukters_create:block/clutch_body"
       }
     },
     {
@@ -24,7 +24,7 @@
         "powered": "true"
       },
       "apply": {
-        "model": "create:block/clutch/block_powered"
+        "model": "compukters_create:block/clutch_body"
       }
     },
     {
@@ -42,7 +42,7 @@
         "powered": "false"
       },
       "apply": {
-        "model": "create:block/clutch/block",
+        "model": "compukters_create:block/clutch_body",
         "x": 90,
         "y": 180
       }
@@ -64,7 +64,7 @@
         "powered": "true"
       },
       "apply": {
-        "model": "create:block/clutch/block_powered",
+        "model": "compukters_create:block/clutch_body",
         "x": 90,
         "y": 180
       }
@@ -86,7 +86,7 @@
         "powered": "false"
       },
       "apply": {
-        "model": "create:block/clutch/block",
+        "model": "compukters_create:block/clutch_body",
         "x": 90,
         "y": 90
       }
@@ -108,7 +108,7 @@
         "powered": "true"
       },
       "apply": {
-        "model": "create:block/clutch/block_powered",
+        "model": "compukters_create:block/clutch_body",
         "x": 90,
         "y": 90
       }
