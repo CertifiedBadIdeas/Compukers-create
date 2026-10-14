@@ -128,6 +128,14 @@ class ActuatorAppearanceTest {
                 fun maximum(axis: Int) = arrow.maxOf { it.getAsJsonArray("to")[axis].asDouble }
                 assertEquals(8.0, (minimum(0) + maximum(0)) / 2)
                 assertEquals(center, (minimum(1) + maximum(1)) / 2)
+                for ((index, first) in arrow.withIndex()) {
+                    for (second in arrow.drop(index + 1)) {
+                        fun overlap(axis: Int): Double =
+                            minOf(first.getAsJsonArray("to")[axis].asDouble, second.getAsJsonArray("to")[axis].asDouble) -
+                                maxOf(first.getAsJsonArray("from")[axis].asDouble, second.getAsJsonArray("from")[axis].asDouble)
+                        assertTrue(overlap(0) <= 0.0 || overlap(1) <= 0.0, "Arrow strokes overlap on $model")
+                    }
+                }
             }
         }
     }
